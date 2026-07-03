@@ -1,0 +1,40 @@
+---
+import Section from './Section.astro';
+import { getCollection } from 'astro:content';
+
+const today = new Date().toISOString().slice(0, 10);
+const all = await getCollection('concerts');
+const upcoming = all
+  .map((c) => c.data)
+  .filter((c) => c.date >= today)
+  .sort((a, b) => a.date.localeCompare(b.date));
+
+const fmt = (d: string) =>
+  new Intl.DateTimeFormat('de-DE', { weekday: 'short', day: '2-digit', month: 'long', year: 'numeric' })
+    .format(new Date(d + 'T00:00:00'));
+---
+<Section id="termine" eyebrow="Termine" heading="Kommende Auftritte">
+  {upcoming.length === 0 ? (
+    <p class="text-lg text-stone">Aktuell sind keine Termine angekündigt. Für Anfragen gern melden.</p>
+  ) : (
+    <ul class="divide-y divide-[var(--color-line)]">
+      {upcoming.map((c) => (
+        <li class="grid gap-2 py-6 sm:grid-cols-[10rem_1fr] sm:gap-8">
+          <div class="text-sm text-brass">
+            <div>{fmt(c.date)}</div>
+            <div class="text-stone">{c.time} Uhr</div>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-parchment">{c.title}</h3>
+            <p class="mt-1 text-stone">{c.venue}, {c.city}</p>
+            {c.program && <p class="mt-1 text-sm text-stone">Programm: {c.program}</p>}
+            {c.note && <p class="mt-1 text-sm text-stone/80">{c.note}</p>}
+            {c.ticketUrl && (
+              <a href={c.ticketUrl} class="mt-2 inline-block text-sm text-brass underline underline-offset-4">Tickets</a>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
+</Section>

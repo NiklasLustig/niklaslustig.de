@@ -1,0 +1,20 @@
+---
+const NAME = 'Jonas Reinhardt';
+const links = [
+  { href: '#vita', label: 'Vita' },
+  { href: '#termine', label: 'Termine' },
+  { href: '#hoerproben', label: 'Hörproben' },
+  { href: '#kontakt', label: 'Kontakt' },
+];
+---
+<header class="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[var(--color-ink)]/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href="#top" class="font-display text-lg tracking-tight text-parchment">{NAME}</a>
+    <ul class="hidden gap-8 text-sm text-stone sm:flex">
+      {links.map((l) => (
+        <li><a href={l.href} class="transition-colors hover:text-brass">{l.label}</a></li>
+      ))}
+    </ul>
+    <a href="#kontakt" class="text-sm text-brass sm:hidden">Kontakt</a>
+  </nav>
+</header>

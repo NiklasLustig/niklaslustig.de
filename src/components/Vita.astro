@@ -1,0 +1,33 @@
+---
+import Section from './Section.astro';
+// CONTENT-TODO: real bio, education, teachers, instruments, highlights
+const facts = [
+  { k: 'Studium', v: 'Kirchenmusik (B.A.), [Hochschule], seit 20XX' },
+  { k: 'Orgel', v: 'bei Prof. [Name]' },
+  { k: 'Weiteres', v: 'Chorleitung, Cembalo, Continuo' },
+  { k: 'Basis', v: 'Berlin' },
+];
+---
+<Section id="vita" eyebrow="Vita" heading="Zur Person">
+  <div class="grid gap-12 md:grid-cols-[1.4fr_1fr]">
+    <div class="space-y-5 text-lg leading-relaxed text-stone">
+      <p>
+        [Platzhalter] Jonas Reinhardt studiert Kirchenmusik in Berlin. Schwerpunkt Orgel,
+        mit besonderem Interesse an norddeutscher Barockmusik und der liturgischen Praxis.
+      </p>
+      <p>
+        [Platzhalter] Regelmäßige Dienste in Berliner Gemeinden, Vertretungen an
+        verschiedenen Instrumenten sowie eigene Konzertprogramme. Erfahrung in
+        Chorbegleitung und Continuo-Spiel.
+      </p>
+    </div>
+    <dl class="space-y-4 border-l border-[var(--color-line)] pl-6">
+      {facts.map((f) => (
+        <div>
+          <dt class="text-xs uppercase tracking-widest text-brass">{f.k}</dt>
+          <dd class="mt-1 text-parchment">{f.v}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</Section>

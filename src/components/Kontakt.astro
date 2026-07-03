@@ -1,0 +1,31 @@
+---
+import Section from './Section.astro';
+// CONTENT-TODO: real email. mailto avoids a form (no spam handling, no DSGVO
+// form-data questions). Add a Netlify form later only if he wants one.
+const EMAIL = 'kontakt@example.com';
+const services = ['Trauungen', 'Trauerfeiern', 'Gottesdienst-Vertretungen', 'Konzerte', 'Chor- & Solobegleitung'];
+---
+<Section id="kontakt" eyebrow="Kontakt" heading="Anfrage & Buchung">
+  <div class="grid gap-12 md:grid-cols-[1fr_1fr]">
+    <div>
+      <p class="text-lg leading-relaxed text-stone">
+        Für Anfragen zu Terminen, Programmen und Konditionen genügt eine kurze Mail
+        mit Datum, Ort und Anlass.
+      </p>
+      <a href={`mailto:${EMAIL}`} class="mt-6 inline-block font-display text-2xl text-brass underline-offset-4 hover:underline">
+        {EMAIL}
+      </a>
+      <p class="mt-4 text-sm text-stone">[Platzhalter] Tel. auf Anfrage &middot; Berlin</p>
+    </div>
+    <div>
+      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Anlässe</p>
+      <ul class="space-y-2 text-parchment">
+        {services.map((s) => (
+          <li class="flex items-center gap-3">
+            <span class="h-px w-4 bg-brass"></span>{s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Section>

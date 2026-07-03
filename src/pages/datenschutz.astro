@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+// CONTENT-TODO: REQUIRED (DSGVO). This scaffold ships privacy-friendly by default:
+// self-hosted fonts (no Google CDN), no analytics, no third-party embeds loaded
+// without consent, mailto instead of a form. Keep the text honest about that.
+---
+<Base title="Datenschutzerklärung" description="Datenschutzerklärung">
+  <Nav />
+  <main class="mx-auto max-w-3xl px-6 py-24">
+    <h1 class="mb-10 font-display text-4xl text-parchment">Datenschutzerklärung</h1>
+    <div class="space-y-6 text-stone leading-relaxed">
+      <p>
+        [Platzhalter] Diese Website ist bewusst datensparsam. Es werden keine
+        Analyse-Tools eingesetzt, Schriften werden lokal ausgeliefert (keine Google
+        Fonts vom Google-Server), und es werden keine Inhalte Dritter ohne Ihre
+        Zustimmung geladen.
+      </p>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brass">Verantwortlicher</p>
+        <p class="mt-2 text-parchment">[Name, Anschrift, E-Mail wie im Impressum]</p>
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brass">Hosting</p>
+        <p class="mt-2">[Name des Hosters, z. B. Netlify] verarbeitet beim Aufruf technisch
+        notwendige Server-Logs (u. a. IP-Adresse). Auftragsverarbeitungsvertrag beachten.</p>
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brass">Kontaktaufnahme</p>
+        <p class="mt-2">Bei Kontakt per E-Mail werden Ihre Angaben zur Bearbeitung der
+        Anfrage gespeichert und nicht ohne Einwilligung weitergegeben.</p>
+      </div>
+      <p class="text-sm text-stone/70">
+        Platzhalter. Vor dem Launch mit einem DSGVO-Generator (z. B. eRecht24) an die
+        tatsächlich genutzten Dienste anpassen.
+      </p>
+    </div>
+  </main>
+  <Footer />
+</Base>

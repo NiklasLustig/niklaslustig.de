@@ -1,0 +1,31 @@
+---
+import Section from './Section.astro';
+// CONTENT-TODO: replace with real recordings.
+// Privacy note: do NOT hard-embed YouTube/Spotify iframes (loads trackers before
+// consent -> DSGVO problem). These are click-to-load placeholders: nothing third
+// party loads until the visitor chooses. Swap href for the real link.
+const tracks = [
+  { title: 'J. S. Bach — Praeludium und Fuge', place: 'Aufnahme [Ort], 2025', href: '' },
+  { title: 'César Franck — Choral Nr. 3', place: 'Aufnahme [Ort], 2025', href: '' },
+  { title: 'Improvisation über [Choral]', place: 'Live-Mitschnitt', href: '' },
+];
+---
+<Section id="hoerproben" eyebrow="Hörproben" heading="Aufnahmen">
+  <div class="grid gap-4 sm:grid-cols-2">
+    {tracks.map((t) => (
+      <a
+        href={t.href || '#'}
+        class="group flex items-center gap-4 rounded-lg border border-[var(--color-line)] bg-ink-raised p-5 transition-colors hover:border-brass/50"
+      >
+        <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-brass/40 text-brass transition-colors group-hover:bg-brass group-hover:text-ink">
+          &#9654;
+        </span>
+        <span>
+          <span class="block text-parchment">{t.title}</span>
+          <span class="block text-sm text-stone">{t.place}</span>
+        </span>
+      </a>
+    ))}
+  </div>
+  <p class="mt-6 text-sm text-stone/70">[Platzhalter] Weitere Aufnahmen auf Anfrage.</p>
+</Section>

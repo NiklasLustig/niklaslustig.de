@@ -1,0 +1,40 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/instrument-sans';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  jsonLd?: object;
+}
+
+// CONTENT-TODO: set the real name and description
+const NAME = 'Jonas Reinhardt';
+const {
+  title = `${NAME} — Kirchenmusiker & Organist, Berlin`,
+  description = 'Kirchenmusiker und Organist in Berlin. Konzerte, Gottesdienste, Trauungen und Trauerfeiern.',
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="de_DE" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

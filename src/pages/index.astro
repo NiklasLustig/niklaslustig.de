@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Vita from '../components/Vita.astro';
+import Termine from '../components/Termine.astro';
+import Hoerproben from '../components/Hoerproben.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const NAME = 'Jonas Reinhardt';
+const today = new Date().toISOString().slice(0, 10);
+const events = (await getCollection('concerts'))
+  .map((c) => c.data)
+  .filter((c) => c.date >= today)
+  .map((c) => ({
+    '@context': 'https://schema.org',
+    '@type': 'MusicEvent',
+    name: c.title,
+    startDate: `${c.date}T${c.time}:00`,
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: { '@type': 'Place', name: c.venue, address: c.city },
+    performer: { '@type': 'Person', name: NAME },
+  }));
+
+// Person + upcoming events as structured data (helps Google show the musician + concerts)
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: NAME,
+  jobTitle: 'Kirchenmusiker, Organist',
+  address: { '@type': 'PostalAddress', addressLocality: 'Berlin', addressCountry: 'DE' },
+  performerIn: events,
+};
+---
+<Base jsonLd={jsonLd}>
+  <Nav />
+  <main>
+    <Hero />
+    <Vita />
+    <Termine />
+    <Hoerproben />
+    <Kontakt />
+  </main>
+  <Footer />
+</Base>

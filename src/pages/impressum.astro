@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+// CONTENT-TODO: REQUIRED by law (§5 DDG). Fill real name + address + contact.
+// Without a valid Impressum the site is legally not launchable in Germany.
+---
+<Base title="Impressum" description="Impressum">
+  <Nav />
+  <main class="mx-auto max-w-3xl px-6 py-24">
+    <h1 class="mb-10 font-display text-4xl text-parchment">Impressum</h1>
+    <div class="space-y-6 text-stone leading-relaxed">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brass">Angaben gemäß § 5 DDG</p>
+        <p class="mt-2 text-parchment">[Vollständiger Name]<br />[Straße Hausnr.]<br />[PLZ Ort]</p>
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brass">Kontakt</p>
+        <p class="mt-2 text-parchment">E-Mail: [kontakt@domain.de]<br />Telefon: [optional]</p>
+      </div>
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brass">Verantwortlich für den Inhalt</p>
+        <p class="mt-2 text-parchment">[Name, Anschrift wie oben]</p>
+      </div>
+      <p class="text-sm text-stone/70">
+        Platzhalter. Vor dem Launch durch echte Angaben ersetzen. Bei Unsicherheit einen
+        Impressum-Generator (z. B. von eRecht24 oder der IHK) nutzen.
+      </p>
+    </div>
+  </main>
+  <Footer />
+</Base>

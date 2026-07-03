@@ -1,0 +1,20 @@
+---
+// Organ "Prospekt": a rank of pipes. The signature motif.
+// Heights follow a rough symmetric facade (tall center flats, shorter towers).
+interface Props { count?: number; height?: number; class?: string; }
+const { count = 15, height = 120, class: cls = '' } = Astro.props;
+const heights = Array.from({ length: count }, (_, i) => {
+  const t = i / (count - 1);              // 0..1
+  const arch = Math.sin(t * Math.PI);      // 0..1..0
+  const jitter = ((i * 37) % 11) / 40;     // deterministic small variation
+  return 0.35 + arch * 0.55 + jitter;      // 0.35..~0.95
+});
+---
+<div class={`flex items-end gap-[3px] ${cls}`} style={`height:${height}px`} aria-hidden="true">
+  {heights.map((h, i) => (
+    <span
+      class="pipe block w-[6px] rounded-t-full"
+      style={`height:${Math.round(h * height)}px; background:linear-gradient(to top, var(--color-brass-dim), var(--color-brass)); animation-delay:${i * 55}ms`}
+    />
+  ))}
+</div>

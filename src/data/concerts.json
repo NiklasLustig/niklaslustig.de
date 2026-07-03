@@ -9,17 +9,5 @@
     "program": "Beethoven, Mendelssohn, Mozart, Weber",
     "ticketUrl": "",
     "note": "Leitung: Niklas Lustig, Hendrik Rüßmann. Eintritt frei, Spenden erbeten."
-  },
-  {
-    "id": "abschlusskonzert-pauluskirche",
-    "title": "Abschlusskonzert — Orgelkonzert",
-    "date": "2026-08-16",
-    "time": "19:00",
-    "venue": "Pauluskirche Zehlendorf",
-    "city": "Berlin",
-    "program": "",
-    "ticketUrl": "",
-    "note": "",
-    "poster": "/images/abschlusskonzert-plakat.svg"
   }
 ]

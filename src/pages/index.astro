@@ -2,9 +2,11 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
+import Aktuell from '../components/Aktuell.astro';
 import Vita from '../components/Vita.astro';
 import Termine from '../components/Termine.astro';
 import Hoerproben from '../components/Hoerproben.astro';
+import Presse from '../components/Presse.astro';
 import Kontakt from '../components/Kontakt.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
@@ -38,9 +40,11 @@ const jsonLd = {
   <Nav />
   <main>
     <Hero />
+    <Aktuell />
     <Vita />
     <Termine />
     <Hoerproben />
+    <Presse />
     <Kontakt />
   </main>
   <Footer />

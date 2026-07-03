@@ -1,0 +1,14 @@
+---
+import Section from './Section.astro';
+// CONTENT-TODO: once a real press kit (bio PDF, image set) exists, link it
+// here directly instead of routing through email.
+const EMAIL = 'nikellustig@gmail.com';
+---
+<Section id="presse" eyebrow="Presse" heading="Material für Veranstalter">
+  <p class="max-w-2xl text-lg leading-relaxed text-stone">
+    Biografie, Programme und Bildmaterial für Ankündigungen und Programmhefte auf Anfrage.
+  </p>
+  <a href={`mailto:${EMAIL}?subject=Pressematerial`} class="mt-6 inline-block text-sm text-brass underline underline-offset-4">
+    Material anfragen
+  </a>
+</Section>

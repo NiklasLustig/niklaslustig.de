@@ -1,8 +1,8 @@
 ---
 import Section from './Section.astro';
-// CONTENT-TODO: real email. mailto avoids a form (no spam handling, no DSGVO
-// form-data questions). Add a Netlify form later only if he wants one.
-const EMAIL = 'kontakt@example.com';
+// mailto avoids a form (no spam handling, no DSGVO form-data questions).
+// Add a Netlify form later only if he wants one.
+const EMAIL = 'nikellustig@gmail.com';
 const services = ['Trauungen', 'Trauerfeiern', 'Gottesdienst-Vertretungen', 'Konzerte', 'Chor- & Solobegleitung'];
 ---
 <Section id="kontakt" eyebrow="Kontakt" heading="Anfrage & Buchung">
@@ -15,7 +15,6 @@ const services = ['Trauungen', 'Trauerfeiern', 'Gottesdienst-Vertretungen', 'Kon
       <a href={`mailto:${EMAIL}`} class="mt-6 inline-block font-display text-2xl text-brass underline-offset-4 hover:underline">
         {EMAIL}
       </a>
-      <p class="mt-4 text-sm text-stone">[Platzhalter] Tel. auf Anfrage &middot; Berlin</p>
     </div>
     <div>
       <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Anlässe</p>

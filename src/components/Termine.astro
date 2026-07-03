@@ -19,7 +19,7 @@ const fmt = (d: string) =>
   ) : (
     <ul class="divide-y divide-[var(--color-line)]">
       {upcoming.map((c) => (
-        <li class="grid gap-2 py-6 sm:grid-cols-[10rem_1fr] sm:gap-8">
+        <li class="grid gap-6 py-6 sm:grid-cols-[10rem_1fr_auto] sm:gap-8">
           <div class="text-sm text-brass">
             <div>{fmt(c.date)}</div>
             <div class="text-stone">{c.time} Uhr</div>
@@ -33,6 +33,13 @@ const fmt = (d: string) =>
               <a href={c.ticketUrl} class="mt-2 inline-block text-sm text-brass underline underline-offset-4">Tickets</a>
             )}
           </div>
+          {c.poster && (
+            <img
+              src={c.poster}
+              alt={`Konzertplakat ${c.title}`}
+              class="h-40 w-auto rounded-lg border border-[var(--color-line)] sm:h-32"
+            />
+          )}
         </li>
       ))}
     </ul>

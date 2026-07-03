@@ -14,6 +14,7 @@ const concerts = defineCollection({
     program: z.string().optional(),
     ticketUrl: z.string().optional(),
     note: z.string().optional(),
+    poster: z.string().optional(),
   }),
 });
 

@@ -3,45 +3,79 @@ import Section from './Section.astro';
 import { getCollection } from 'astro:content';
 
 const today = new Date().toISOString().slice(0, 10);
-const all = await getCollection('concerts');
-const upcoming = all
-  .map((c) => c.data)
-  .filter((c) => c.date >= today)
-  .sort((a, b) => a.date.localeCompare(b.date));
+const all = (await getCollection('concerts')).map((c) => c.data).sort((a, b) => a.date.localeCompare(b.date));
+const upcoming = all.filter((c) => c.date >= today);
+const past = all.filter((c) => c.date < today).sort((a, b) => b.date.localeCompare(a.date));
+
+const [next, ...rest] = upcoming;
 
 const fmt = (d: string) =>
   new Intl.DateTimeFormat('de-DE', { weekday: 'short', day: '2-digit', month: 'long', year: 'numeric' })
     .format(new Date(d + 'T00:00:00'));
 ---
 <Section id="termine" eyebrow="Termine" heading="Kommende Auftritte">
-  {upcoming.length === 0 ? (
+  {!next ? (
     <p class="text-lg text-stone">Aktuell sind keine Termine angekündigt. Für Anfragen gern melden.</p>
   ) : (
-    <ul class="divide-y divide-[var(--color-line)]">
-      {upcoming.map((c) => (
-        <li class="grid gap-6 py-6 sm:grid-cols-[10rem_1fr_auto] sm:gap-8">
-          <div class="text-sm text-brass">
-            <div>{fmt(c.date)}</div>
-            <div class="text-stone">{c.time} Uhr</div>
-          </div>
-          <div>
-            <h3 class="font-display text-xl text-parchment">{c.title}</h3>
-            <p class="mt-1 text-stone">{c.venue}, {c.city}</p>
-            {c.program && <p class="mt-1 text-sm text-stone">Programm: {c.program}</p>}
-            {c.note && <p class="mt-1 text-sm text-stone/80">{c.note}</p>}
-            {c.ticketUrl && (
-              <a href={c.ticketUrl} class="mt-2 inline-block text-sm text-brass underline underline-offset-4">Tickets</a>
-            )}
-          </div>
-          {c.poster && (
-            <img
-              src={c.poster}
-              alt={`Konzertplakat ${c.title}`}
-              class="h-40 w-auto rounded-lg border border-[var(--color-line)] sm:h-32"
-            />
-          )}
-        </li>
-      ))}
-    </ul>
+    <div class="grid gap-8 sm:grid-cols-[1fr_1.3fr] sm:items-center">
+      {next.poster && (
+        <img
+          src={next.poster}
+          alt={`Konzertplakat ${next.title}`}
+          class="w-full max-w-sm rounded-lg border border-[var(--color-line)]"
+        />
+      )}
+      <div>
+        <p class="text-sm text-brass">{fmt(next.date)} &middot; {next.time} Uhr</p>
+        <h3 class="mt-2 font-display text-2xl text-parchment sm:text-3xl">{next.title}</h3>
+        <p class="mt-2 text-stone">{next.venue}, {next.city}</p>
+        {next.program && <p class="mt-1 text-sm text-stone">Programm: {next.program}</p>}
+        {next.note && <p class="mt-1 text-sm text-stone/80">{next.note}</p>}
+        {next.ticketUrl && (
+          <a href={next.ticketUrl} class="mt-3 inline-block text-sm text-brass underline underline-offset-4">Tickets</a>
+        )}
+      </div>
+    </div>
+  )}
+
+  {rest.length > 0 && (
+    <div class="mt-16">
+      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Weitere Termine</p>
+      <ul class="divide-y divide-[var(--color-line)]">
+        {rest.map((c) => (
+          <li class="grid gap-2 py-5 sm:grid-cols-[10rem_1fr] sm:gap-8">
+            <div class="text-sm text-brass">
+              <div>{fmt(c.date)}</div>
+              <div class="text-stone">{c.time} Uhr</div>
+            </div>
+            <div>
+              <h4 class="font-display text-lg text-parchment">{c.title}</h4>
+              <p class="mt-1 text-stone">{c.venue}, {c.city}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {past.length > 0 && (
+    <div class="mt-16">
+      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Vergangene Auftritte</p>
+      <ul class="divide-y divide-[var(--color-line)]">
+        {past.map((c) => (
+          <li class="grid gap-2 py-5 sm:grid-cols-[10rem_1fr] sm:gap-8">
+            <div class="text-sm text-stone">
+              <div>{fmt(c.date)}</div>
+              <div>{c.time} Uhr</div>
+            </div>
+            <div>
+              <h4 class="font-display text-lg text-parchment">{c.title}</h4>
+              <p class="mt-1 text-stone">{c.venue}, {c.city}</p>
+              {c.program && <p class="mt-1 text-sm text-stone">Programm: {c.program}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   )}
 </Section>

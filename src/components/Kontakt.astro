@@ -3,25 +3,25 @@ import Section from './Section.astro';
 // mailto avoids a form (no spam handling, no DSGVO form-data questions).
 // Add a Netlify form later only if he wants one.
 const EMAIL = 'nikellustig@gmail.com';
-const services = ['Trauungen', 'Trauerfeiern', 'Gottesdienst-Vertretungen', 'Konzerte', 'Chor- & Solobegleitung'];
+const contexts = ['Gottesdienst', 'Konzert', 'Trauung & Trauerfeier', 'Chor- und Ensemblearbeit'];
 ---
-<Section id="kontakt" eyebrow="Kontakt" heading="Anfrage & Buchung">
+<Section id="kontakt" eyebrow="Kontakt" heading="Zusammenarbeit">
   <div class="grid gap-12 md:grid-cols-[1fr_1fr]">
     <div>
       <p class="text-lg leading-relaxed text-stone">
-        Für Anfragen zu Terminen, Programmen und Konditionen genügt eine kurze Mail
-        mit Datum, Ort und Anlass.
+        Für Konzerte, Gottesdienste, Trauungen und Chorprojekte &mdash; eine kurze Mail
+        mit Datum, Ort und Anlass genügt.
       </p>
       <a href={`mailto:${EMAIL}`} class="mt-6 inline-block font-display text-2xl text-brass underline-offset-4 hover:underline">
         {EMAIL}
       </a>
     </div>
     <div>
-      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Anlässe</p>
+      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Im Rahmen von</p>
       <ul class="space-y-2 text-parchment">
-        {services.map((s) => (
+        {contexts.map((c) => (
           <li class="flex items-center gap-3">
-            <span class="h-px w-4 bg-brass"></span>{s}
+            <span class="h-px w-4 bg-brass"></span>{c}
           </li>
         ))}
       </ul>

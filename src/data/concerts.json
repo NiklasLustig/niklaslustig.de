@@ -1,35 +1,13 @@
 [
   {
-    "id": "2026-08-16-pauluskirche",
-    "title": "Orgelkonzert zum Sommerausklang",
-    "date": "2026-08-16",
-    "time": "18:00",
-    "venue": "Pauluskirche Zehlendorf",
+    "id": "2026-05-31-mensch-natur-gott",
+    "title": "Mensch Natur Gott — Oratorienkonzert",
+    "date": "2026-05-31",
+    "time": "17:00",
+    "venue": "St. Josef, Behaimstraße 39",
     "city": "Berlin",
-    "program": "Bach, Franck, Reger",
+    "program": "Beethoven, Mendelssohn, Mozart, Weber",
     "ticketUrl": "",
-    "note": "Eintritt frei, Kollekte am Ausgang"
-  },
-  {
-    "id": "2026-09-20-marienkirche",
-    "title": "Musik zur Marktzeit",
-    "date": "2026-09-20",
-    "time": "12:00",
-    "venue": "St. Marienkirche",
-    "city": "Berlin",
-    "program": "Buxtehude, Böhm",
-    "ticketUrl": "",
-    "note": ""
-  },
-  {
-    "id": "2026-10-31-reformationstag",
-    "title": "Kantatengottesdienst zum Reformationstag",
-    "date": "2026-10-31",
-    "time": "10:00",
-    "venue": "[Gemeinde]",
-    "city": "Berlin",
-    "program": "J. S. Bach: Kantate BWV 80",
-    "ticketUrl": "",
-    "note": "Orgel und Continuo"
+    "note": "Leitung: Niklas Lustig, Hendrik Rüßmann. Eintritt frei, Spenden erbeten."
   }
 ]

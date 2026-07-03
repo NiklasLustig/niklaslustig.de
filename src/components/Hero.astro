@@ -1,24 +1,34 @@
 ---
 import Pipes from './Pipes.astro';
-// CONTENT-TODO: name, instrument line, one-sentence positioning
-const NAME = 'Jonas Reinhardt';
+const NAME = 'Niklas Lustig';
+// TODO-BILD: public/images/niklas-organ.jpg (Foto an der Orgel)
 ---
 <section id="top" class="relative mx-auto max-w-5xl px-6 pt-24 pb-28 sm:pt-32">
-  <p class="mb-6 text-sm uppercase tracking-[0.28em] text-brass">Organist &middot; Kirchenmusiker &middot; Berlin</p>
-  <h1 class="font-display text-5xl leading-[0.95] text-parchment sm:text-7xl md:text-8xl">
-    {NAME}
-  </h1>
-  <p class="mt-8 max-w-xl text-lg leading-relaxed text-stone">
-    Kirchenmusik-Student an der [Hochschule]. Orgel für Gottesdienst, Konzert und Feier
-    &mdash; von der Trauung bis zum Kantatengottesdienst.
-  </p>
-  <div class="mt-10 flex flex-wrap items-center gap-4">
-    <a href="#kontakt" class="rounded-full bg-brass px-6 py-3 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5">
-      Anfrage senden
-    </a>
-    <a href="#termine" class="text-sm text-stone underline-offset-4 hover:text-parchment hover:underline">
-      Nächste Termine
-    </a>
+  <div class="grid gap-12 md:grid-cols-[1.3fr_1fr] md:items-center">
+    <div>
+      <p class="mb-6 text-sm uppercase tracking-[0.28em] text-brass">Organist &middot; Kirchenmusiker &middot; Berlin</p>
+      <h1 class="font-display text-5xl leading-[0.95] text-parchment sm:text-7xl md:text-8xl">
+        {NAME}
+      </h1>
+      <p class="mt-8 max-w-xl text-lg leading-relaxed text-stone">
+        Kirchenmusik-Student an der Universität der Künste Berlin (Orgel bei Henry Fairs,
+        Chorleitung bei Kai-Uwe Jirka). Orgel und Chorleitung für Gottesdienst, Konzert und
+        Feier &mdash; von der Trauung bis zum Oratorienkonzert.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href="#kontakt" class="rounded-full bg-brass px-6 py-3 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5">
+          Anfrage senden
+        </a>
+        <a href="#termine" class="text-sm text-stone underline-offset-4 hover:text-parchment hover:underline">
+          Nächste Termine
+        </a>
+      </div>
+    </div>
+    <img
+      src="/images/niklas-organ.jpg"
+      alt={`${NAME} an der Orgel`}
+      class="aspect-[4/5] w-full rounded-lg border border-[var(--color-line)] object-cover"
+    />
   </div>
   <Pipes count={19} height={96} class="mt-20 opacity-90" />
 </section>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #15171C;
-  --color-ink-raised: #1C1F27;
+  --color-ink: #0A0A0A;
+  --color-ink-raised: #161616;
   --color-brass: #C3A26B;
   --color-brass-dim: #8A7248;
   --color-parchment: #E9E4D8;

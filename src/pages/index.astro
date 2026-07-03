@@ -9,7 +9,7 @@ import Kontakt from '../components/Kontakt.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
-const NAME = 'Jonas Reinhardt';
+const NAME = 'Niklas Lustig';
 const today = new Date().toISOString().slice(0, 10);
 const events = (await getCollection('concerts'))
   .map((c) => c.data)

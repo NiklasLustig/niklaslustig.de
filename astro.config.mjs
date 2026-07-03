@@ -2,9 +2,9 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-// CONTENT-TODO: replace with the real domain before launch
+// CONTENT-TODO: replace with a custom domain once one is bought
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://niklaslustig.netlify.app',
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },
 });

@@ -1,10 +1,12 @@
 ---
 import Section from './Section.astro';
-// CONTENT-TODO: real bio, education, teachers, instruments, highlights
 const facts = [
-  { k: 'Studium', v: 'Kirchenmusik (B.A.), [Hochschule], seit 20XX' },
-  { k: 'Orgel', v: 'bei Prof. [Name]' },
-  { k: 'Weiteres', v: 'Chorleitung, Cembalo, Continuo' },
+  { k: 'Studium', v: 'Kirchenmusik (B.A.), Universität der Künste Berlin' },
+  { k: 'Orgel', v: 'bei Henry Fairs' },
+  { k: 'Chorleitung', v: 'bei Kai-Uwe Jirka' },
+  { k: 'Auslandsjahr', v: 'Estnische Musikakademie Tallinn, bei Toomas Kapten' },
+  { k: 'Meisterkurse', v: 'Stefan Parkman, Frieder Bernius, Anne Kohler, Hirvo Surva' },
+  { k: 'Auszeichnung', v: '2. Preis, Wettbewerb für ehren- und nebenamtliche Organist*innen, Lutherkirche Spandau (2021)' },
   { k: 'Basis', v: 'Berlin' },
 ];
 ---
@@ -12,13 +14,19 @@ const facts = [
   <div class="grid gap-12 md:grid-cols-[1.4fr_1fr]">
     <div class="space-y-5 text-lg leading-relaxed text-stone">
       <p>
-        [Platzhalter] Jonas Reinhardt studiert Kirchenmusik in Berlin. Schwerpunkt Orgel,
-        mit besonderem Interesse an norddeutscher Barockmusik und der liturgischen Praxis.
+        Niklas Lustig (*2004) ist Organist und Chorleiter aus Berlin. Erste musikalische
+        Ausbildung am Klavier ab dem fünften Lebensjahr, heute Kirchenmusik-Student an der
+        Universität der Künste Berlin bei Kai-Uwe Jirka (Chorleitung) und Henry Fairs (Orgel).
       </p>
       <p>
-        [Platzhalter] Regelmäßige Dienste in Berliner Gemeinden, Vertretungen an
-        verschiedenen Instrumenten sowie eigene Konzertprogramme. Erfahrung in
-        Chorbegleitung und Continuo-Spiel.
+        Ein Erasmus-Jahr an der Estnischen Akademie für Musik und Theater in Tallinn bei
+        Toomas Kapten vertiefte seinen Schwerpunkt Chorleitung, ergänzt durch Meisterkurse
+        bei Stefan Parkman, Frieder Bernius, Anne Kohler und Hirvo Surva.
+      </p>
+      <p>
+        Zuletzt leitete er gemeinsam mit Hendrik Rüßmann das Oratorienkonzert
+        „Mensch Natur Gott" (Beethoven, Mendelssohn, Mozart, Weber) mit Oratorienchor und
+        Orchester St. Josef in Berlin.
       </p>
     </div>
     <dl class="space-y-4 border-l border-[var(--color-line)] pl-6">
@@ -30,4 +38,9 @@ const facts = [
       ))}
     </dl>
   </div>
+  <img
+    src="/images/mensch-natur-gott-plakat.jpg"
+    alt="Konzertplakat Mensch Natur Gott, 31.05.2026, St. Josef Berlin"
+    class="mt-12 max-w-xs rounded-lg border border-[var(--color-line)]"
+  />
 </Section>

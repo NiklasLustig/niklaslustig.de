@@ -1,0 +1,202 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- spotlight glow behind figure -->
+    <radialGradient id="spot" cx="50%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#2a2213"/>
+      <stop offset="45%" stop-color="#16130c"/>
+      <stop offset="100%" stop-color="#040404"/>
+    </radialGradient>
+
+    <!-- blonde hair -->
+    <linearGradient id="hair" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#fbe9b0"/>
+      <stop offset="30%" stop-color="#eec96a"/>
+      <stop offset="65%" stop-color="#d0a545"/>
+      <stop offset="100%" stop-color="#9a742c"/>
+    </linearGradient>
+    <linearGradient id="hairShadow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#c9a24a"/>
+      <stop offset="100%" stop-color="#6f521e"/>
+    </linearGradient>
+    <linearGradient id="hairHi" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#fff3cf"/>
+      <stop offset="100%" stop-color="#f2d485" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- face, lit from upper-left -->
+    <linearGradient id="skin" x1="0.2" y1="0.1" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#f3ddc2"/>
+      <stop offset="55%" stop-color="#e4c19c"/>
+      <stop offset="100%" stop-color="#b78d63"/>
+    </linearGradient>
+
+    <!-- jacket rim light -->
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e9c86a" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#e9c86a"/>
+      <stop offset="100%" stop-color="#e9c86a" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1920" height="1080" fill="#040404"/>
+  <rect width="1920" height="1080" fill="url(#spot)"/>
+
+  <!-- conducting motion arcs -->
+  <g stroke="#e9c86a" fill="none" opacity="0.20" stroke-linecap="round">
+    <path d="M 520 300 Q 960 120 1400 300" stroke-width="2"/>
+    <path d="M 470 380 Q 960 170 1450 380" stroke-width="1.4" opacity="0.6"/>
+  </g>
+
+  <!-- ===== HAIR back layer (behind head/shoulders) ===== -->
+  <path fill="url(#hairShadow)" d="
+    M 960 250
+    C 780 250 690 360 675 500
+    C 662 620 640 740 610 860
+    C 700 815 760 815 820 845
+    C 815 690 830 560 900 470
+    C 960 400 1020 400 1080 470
+    C 1150 560 1165 690 1160 845
+    C 1220 815 1280 815 1370 860
+    C 1340 740 1318 620 1305 500
+    C 1290 360 1200 250 1020 250
+    Z"/>
+
+  <!-- ===== SHOULDERS / JACKET (near-black, melts into bg) ===== -->
+  <path fill="#0e0e0e" d="
+    M 960 560
+    C 1080 560 1150 600 1230 700
+    L 1320 900
+    C 1180 940 1080 950 960 950
+    C 840 950 740 940 600 900
+    L 690 700
+    C 770 600 840 560 960 560 Z"/>
+  <!-- lapels -->
+  <path fill="#050505" d="M 960 600 L 900 760 L 960 900 L 1020 760 Z"/>
+  <!-- collar / shirt -->
+  <path fill="#1a1a1a" d="M 960 590 L 915 690 L 960 720 L 1005 690 Z"/>
+  <!-- bow tie -->
+  <path fill="#e9c86a" d="M 930 636 L 960 654 L 990 636 L 985 672 L 960 662 L 935 672 Z" opacity="0.85"/>
+  <!-- rim light on left shoulder edge -->
+  <path d="M 690 700 C 770 600 840 560 960 560 L 960 575 C 850 575 785 612 708 706 Z" fill="url(#rim)" opacity="0.7"/>
+
+  <!-- ===== NECK ===== -->
+  <path fill="url(#skin)" d="M 928 500 L 928 585 C 928 610 992 610 992 585 L 992 500 Z"/>
+  <path fill="#00000022" d="M 928 560 C 950 578 970 578 992 560 L 992 585 C 992 610 928 610 928 585 Z"/>
+
+  <!-- ===== FACE ===== -->
+  <path fill="url(#skin)" d="
+    M 960 300
+    C 1032 300 1070 360 1070 430
+    C 1070 500 1030 560 960 560
+    C 890 560 850 500 850 430
+    C 850 360 888 300 960 300 Z"/>
+
+  <!-- ears -->
+  <ellipse cx="852" cy="440" rx="16" ry="26" fill="url(#skin)"/>
+  <ellipse cx="1068" cy="440" rx="16" ry="26" fill="url(#skin)"/>
+
+  <!-- soft cheek/shadow modelling -->
+  <path d="M 960 300 C 890 300 850 360 850 430 C 850 500 890 560 960 560 C 940 540 918 500 916 430 C 914 360 936 320 960 300 Z" fill="#00000018"/>
+
+  <!-- brows -->
+  <path d="M 892 398 Q 918 386 946 396" stroke="#7c5a2e" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M 974 396 Q 1002 386 1028 398" stroke="#7c5a2e" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+  <!-- eyes -->
+  <g>
+    <ellipse cx="918" cy="424" rx="20" ry="11" fill="#fbf6ee"/>
+    <ellipse cx="1002" cy="424" rx="20" ry="11" fill="#fbf6ee"/>
+    <circle cx="920" cy="425" r="8" fill="#5b7a86"/>
+    <circle cx="1000" cy="425" r="8" fill="#5b7a86"/>
+    <circle cx="920" cy="425" r="3.6" fill="#141414"/>
+    <circle cx="1000" cy="425" r="3.6" fill="#141414"/>
+    <circle cx="923" cy="422" r="1.6" fill="#ffffff"/>
+    <circle cx="1003" cy="422" r="1.6" fill="#ffffff"/>
+    <!-- upper lash line -->
+    <path d="M 898 420 Q 918 411 938 420" stroke="#3a2c18" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 982 420 Q 1002 411 1022 420" stroke="#3a2c18" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- nose -->
+  <path d="M 960 430 L 951 478 Q 960 486 969 478" stroke="#a5794c" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- lips -->
+  <path d="M 934 512 Q 960 504 986 512 Q 960 528 934 512 Z" fill="#c58a72"/>
+  <path d="M 934 512 Q 960 516 986 512" stroke="#8f5a48" stroke-width="2" fill="none"/>
+
+  <!-- ===== HAIR front layer (frames face) ===== -->
+  <!-- left sweep -->
+  <path fill="url(#hair)" d="
+    M 960 258
+    C 862 258 800 316 786 402
+    C 776 470 772 560 742 690
+    C 726 760 706 815 682 860
+    C 740 828 792 826 832 852
+    C 820 700 832 560 852 470
+    C 838 470 826 452 828 424
+    C 862 372 900 336 960 322 Z"/>
+  <!-- right sweep -->
+  <path fill="url(#hair)" d="
+    M 960 258
+    C 1058 258 1120 316 1134 402
+    C 1144 470 1148 560 1178 690
+    C 1194 760 1214 815 1238 860
+    C 1180 828 1128 826 1088 852
+    C 1100 700 1088 560 1068 470
+    C 1082 470 1094 452 1092 424
+    C 1058 372 1020 336 960 322 Z"/>
+  <!-- center part / top -->
+  <path fill="url(#hair)" d="
+    M 960 258
+    C 900 258 858 300 838 356
+    C 878 320 918 306 960 306
+    C 1002 306 1042 320 1082 356
+    C 1062 300 1020 258 960 258 Z"/>
+
+  <!-- hair highlight strands -->
+  <g stroke="url(#hairHi)" fill="none" stroke-linecap="round" opacity="0.9">
+    <path d="M 848 360 C 820 470 812 620 760 800" stroke-width="6"/>
+    <path d="M 1072 360 C 1100 470 1108 620 1160 800" stroke-width="6"/>
+    <path d="M 900 300 C 878 460 870 640 812 830" stroke-width="3"/>
+    <path d="M 1020 300 C 1042 460 1050 640 1108 830" stroke-width="3"/>
+  </g>
+
+  <!-- ===== ARMS raised (conducting) ===== -->
+  <!-- left arm (jacket) -->
+  <path fill="#0e0e0e" d="
+    M 720 706
+    C 640 660 560 560 520 470
+    C 512 452 536 438 548 454
+    C 596 540 672 620 748 672 Z"/>
+  <path d="M 520 470 C 560 560 640 660 720 706 L 726 690 C 648 646 590 552 548 468 Z" fill="url(#rim)" opacity="0.55"/>
+  <!-- right arm (jacket) raised higher for baton -->
+  <path fill="#0e0e0e" d="
+    M 1200 706
+    C 1290 650 1380 520 1430 408
+    C 1440 388 1414 374 1400 392
+    C 1346 500 1264 604 1176 668 Z"/>
+  <path d="M 1430 408 C 1380 520 1290 650 1200 706 L 1194 690 C 1282 628 1360 512 1408 404 Z" fill="url(#rim)" opacity="0.55"/>
+
+  <!-- hands -->
+  <ellipse cx="526" cy="456" rx="20" ry="15" fill="url(#skin)" transform="rotate(-38 526 456)"/>
+  <ellipse cx="1418" cy="398" rx="20" ry="15" fill="url(#skin)" transform="rotate(38 1418 398)"/>
+
+  <!-- baton -->
+  <line x1="1420" y1="398" x2="1560" y2="300" stroke="#f7efdd" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="1418" cy="399" r="6" fill="#d8c9a6"/>
+
+  <!-- vignette -->
+  <rect width="1920" height="1080" fill="url(#vig)"/>
+  <radialGradient id="vig" cx="50%" cy="42%" r="70%">
+    <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.75"/>
+  </radialGradient>
+</svg>

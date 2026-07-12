@@ -1,0 +1,26 @@
+---
+// Easter egg: visitors arriving from unlustig.niklaslustig.de see a black
+// interstitial; clicking through counts as a user gesture, which lets the
+// YouTube embed autoplay with sound afterward. Self-contained — safe to
+// delete this file and its <ReferrerGate /> usage to remove entirely.
+const TRIGGER_HOST = 'unlustig.niklaslustig.de';
+const VIDEO_ID = 'ZLliXV4eI6o';
+---
+<div id="referrer-gate" hidden class="fixed inset-0 z-[100] grid place-items-center bg-black">
+  <button id="referrer-gate-btn" class="rounded-full bg-brass px-8 py-4 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5">
+    Weiter zur Website
+  </button>
+  <div id="referrer-gate-player" class="hidden"></div>
+</div>
+
+<script define:vars={{ TRIGGER_HOST, VIDEO_ID }}>
+  if (document.referrer.includes(TRIGGER_HOST)) {
+    const gate = document.getElementById('referrer-gate');
+    gate.hidden = false;
+    document.getElementById('referrer-gate-btn').addEventListener('click', () => {
+      const player = document.getElementById('referrer-gate-player');
+      player.innerHTML = `<iframe width="0" height="0" style="position:absolute" src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1" allow="autoplay" title="audio"></iframe>`;
+      gate.remove();
+    });
+  }
+</script>

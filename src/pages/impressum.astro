@@ -2,8 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-// CONTENT-TODO: REQUIRED by law (§5 DDG). Fill real name + address + contact.
-// Without a valid Impressum the site is legally not launchable in Germany.
 ---
 <Base title="Impressum" description="Impressum">
   <Nav />
@@ -12,20 +10,16 @@ import Footer from '../components/Footer.astro';
     <div class="space-y-6 text-stone leading-relaxed">
       <div>
         <p class="text-xs uppercase tracking-widest text-brass">Angaben gemäß § 5 DDG</p>
-        <p class="mt-2 text-parchment">[Vollständiger Name]<br />[Straße Hausnr.]<br />[PLZ Ort]</p>
+        <p class="mt-2 text-parchment">Niklas Lustig<br />Berliner Straße 2<br />17279 Lychen</p>
       </div>
       <div>
         <p class="text-xs uppercase tracking-widest text-brass">Kontakt</p>
-        <p class="mt-2 text-parchment">E-Mail: [kontakt@domain.de]<br />Telefon: [optional]</p>
+        <p class="mt-2 text-parchment">E-Mail: nikellustig@gmail.com</p>
       </div>
       <div>
         <p class="text-xs uppercase tracking-widest text-brass">Verantwortlich für den Inhalt</p>
-        <p class="mt-2 text-parchment">[Name, Anschrift wie oben]</p>
+        <p class="mt-2 text-parchment">Niklas Lustig, Anschrift wie oben</p>
       </div>
-      <p class="text-sm text-stone/70">
-        Platzhalter. Vor dem Launch durch echte Angaben ersetzen. Bei Unsicherheit einen
-        Impressum-Generator (z. B. von eRecht24 oder der IHK) nutzen.
-      </p>
     </div>
   </main>
   <Footer />

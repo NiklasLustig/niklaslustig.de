@@ -1,9 +1,10 @@
 ---
-// Easter egg: visitors arriving from unlustig.niklaslustig.de see a black
-// interstitial; clicking through counts as a user gesture, which lets the
-// YouTube embed autoplay with sound afterward. Self-contained — safe to
-// delete this file and its <ReferrerGate /> usage to remove entirely.
-const TRIGGER_HOST = 'unlustig.niklaslustig.de';
+// Easter egg: visitors arriving from the chaos site (lustiglustig.netlify.app
+// or niklaslustig.github.io/lustiglustig) see a black interstitial; clicking
+// through counts as a user gesture, which lets the YouTube embed autoplay
+// with sound afterward. Self-contained — safe to delete this file and its
+// <ReferrerGate /> usage to remove entirely.
+const TRIGGER_HOSTS = ['unlustig.niklaslustig.de', 'lustiglustig.netlify.app', 'niklaslustig.github.io/lustiglustig'];
 const VIDEO_ID = 'ZLliXV4eI6o';
 ---
 <div id="referrer-gate" hidden class="fixed inset-0 z-[100] grid place-items-center bg-black">
@@ -13,13 +14,17 @@ const VIDEO_ID = 'ZLliXV4eI6o';
   <div id="referrer-gate-player" class="hidden"></div>
 </div>
 
-<script define:vars={{ TRIGGER_HOST, VIDEO_ID }}>
-  if (document.referrer.includes(TRIGGER_HOST)) {
+<script define:vars={{ TRIGGER_HOSTS, VIDEO_ID }}>
+  if (TRIGGER_HOSTS.some((host) => document.referrer.includes(host))) {
     const gate = document.getElementById('referrer-gate');
     gate.hidden = false;
     document.getElementById('referrer-gate-btn').addEventListener('click', () => {
-      const player = document.getElementById('referrer-gate-player');
+      // append the player to <body>, not inside the gate — the gate gets
+      // removed right after, which would also destroy the iframe if it
+      // were still nested inside it
+      const player = document.createElement('div');
       player.innerHTML = `<iframe width="0" height="0" style="position:absolute" src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1" allow="autoplay" title="audio"></iframe>`;
+      document.body.appendChild(player);
       gate.remove();
     });
   }

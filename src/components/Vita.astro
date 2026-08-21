@@ -1,51 +1,49 @@
 ---
+import { Image } from 'astro:assets';
 import Section from './Section.astro';
-const facts = [
-  { k: 'Studium', v: 'Kirchenmusik (B.A.), Universität der Künste Berlin' },
-  { k: 'Orgel', v: 'bei Henry Fairs' },
-  { k: 'Chorleitung', v: 'bei Kai-Uwe Jirka' },
-  { k: 'Auslandsjahr', v: 'Estnische Musikakademie Tallinn, bei Toomas Kapten' },
-  { k: 'Meisterkurse', v: 'Stefan Parkman, Frieder Bernius, Anne Kohler, Hirvo Surva' },
-  { k: 'Auszeichnung', v: '2. Preis, Wettbewerb für ehren- und nebenamtliche Organist*innen, Lutherkirche Spandau (2021)' },
-  { k: 'Basis', v: 'Berlin' },
-];
+import { photo } from '../lib/photos';
+import { vita } from '../data/site';
+
+const portrait = photo('portrait-verschraenkt');
 ---
 <Section id="vita" eyebrow="Vita" heading="Zur Person">
-  <div class="grid gap-12 md:grid-cols-[1.4fr_1fr]">
-    <div class="space-y-5 text-lg leading-relaxed text-stone">
-      <p>
-        Niklas Lustig (*2004), aufgewachsen am Klavier, studiert heute Kirchenmusik an der
-        Universität der Künste Berlin &mdash; Orgel bei Henry Fairs, Chorleitung bei
-        Kai-Uwe Jirka. Sein Schwerpunkt: liturgische Musik, die den Kirchenraum als Teil
-        des Klangs begreift.
-      </p>
-      <p>
-        Ein Jahr an der Estnischen Musikakademie Tallinn bei Toomas Kapten sowie
-        Meisterkurse bei Stefan Parkman, Frieder Bernius, Anne Kohler und Hirvo Surva
-        vertieften diese Arbeit an Chorklang und liturgischer Praxis.
-      </p>
+  <div class="grid gap-12 md:grid-cols-[1.35fr_1fr] md:gap-16">
+    <div>
+      <div class="space-y-5 text-lg leading-relaxed text-stone">
+        {vita.short.map((p) => <p>{p}</p>)}
+      </div>
+
+      {vita.long.length > 0 && (
+        <details class="mt-8 border-t border-[var(--color-line)] pt-6">
+          <summary class="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-brass">
+            <span class="chevron inline-block">&rsaquo;</span>
+            Ausführliche Vita
+          </summary>
+          <div class="mt-5 space-y-5 text-lg leading-relaxed text-stone">
+            {vita.long.map((p) => <p>{p}</p>)}
+          </div>
+        </details>
+      )}
+
+      <figure class="mt-12">
+        <Image
+          src={portrait}
+          alt="Niklas Lustig im Konzert, St. Josef Berlin"
+          widths={[420, 640, 900]}
+          sizes="(min-width: 768px) 40vw, 100vw"
+          loading="lazy"
+          class="w-full max-w-sm rounded-lg border border-[var(--color-line)] object-cover"
+        />
+      </figure>
     </div>
-    <dl class="space-y-4 border-l border-[var(--color-line)] pl-6">
-      {facts.map((f) => (
+
+    <dl class="space-y-5 border-l border-[var(--color-line)] pl-6">
+      {vita.facts.map((f) => (
         <div>
           <dt class="text-xs uppercase tracking-widest text-brass">{f.k}</dt>
           <dd class="mt-1 text-parchment">{f.v}</dd>
         </div>
       ))}
-      <div>
-        <dt class="text-xs uppercase tracking-widest text-brass">Archiv</dt>
-        <dd class="mt-2">
-          <img
-            src="/images/abschlusskonzert-2019-plakat.jpg"
-            alt="Konzertplakat Abschlusskonzert, Pauluskirche Zehlendorf"
-            width="300"
-            height="424"
-            loading="lazy"
-            class="w-32 rounded-lg border border-[var(--color-line)]"
-          />
-          <span class="mt-1 block text-sm text-stone">Abschlusskonzert, Pauluskirche Zehlendorf</span>
-        </dd>
-      </div>
     </dl>
   </div>
 </Section>

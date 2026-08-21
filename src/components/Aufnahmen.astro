@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import Section from './Section.astro';
+import { photo } from '../lib/photos';
+import { recordings } from '../data/site';
+
+// Privacy: nothing third-party loads until a visitor clicks. YouTube entries
+// swap in an iframe on click; everything else is a plain link or a local file.
+const cover = photo('haende-bewegung');
+---
+{recordings.length > 0 && (
+  <Section
+    id="aufnahmen"
+    eyebrow="Hören"
+    heading="Aufnahmen"
+    lead="Mitschnitte werden erst geladen, wenn Sie sie starten — vorher wird nichts an Dritte übertragen."
+  >
+    <div class="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-start md:gap-14">
+      <Image
+        src={cover}
+        alt="Hände auf den Manualen der Orgel, Pauluskirche Berlin-Zehlendorf"
+        widths={[480, 720, 1000]}
+        sizes="(min-width: 768px) 45vw, 100vw"
+        loading="lazy"
+        class="w-full rounded-lg border border-[var(--color-line)] object-cover"
+      />
+
+      <ul class="space-y-3">
+        {recordings.map((r) => (
+          <li>
+            {r.kind === 'audio' ? (
+              <div class="rounded-lg border border-[var(--color-line)] bg-ink-raised p-5">
+                <p class="text-parchment">{r.title}</p>
+                <p class="mt-1 text-sm text-stone">{r.meta}</p>
+                <audio controls preload="none" src={r.src} class="mt-4 w-full"></audio>
+              </div>
+            ) : r.kind === 'youtube' ? (
+              <button
+                type="button"
+                data-video={r.src}
+                class="video-trigger group flex w-full items-center gap-4 rounded-lg border border-[var(--color-line)] bg-ink-raised p-5 text-left transition-colors hover:border-brass/50"
+              >
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-brass/40 text-brass transition-colors group-hover:bg-brass group-hover:text-ink">&#9654;</span>
+                <span>
+                  <span class="block text-parchment">{r.title}</span>
+                  <span class="block text-sm text-stone">{r.meta}</span>
+                </span>
+              </button>
+            ) : (
+              <a
+                href={r.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-4 rounded-lg border border-[var(--color-line)] bg-ink-raised p-5 transition-colors hover:border-brass/50"
+              >
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-brass/40 text-brass transition-colors group-hover:bg-brass group-hover:text-ink">&#9654;</span>
+                <span>
+                  <span class="block text-parchment">{r.title}</span>
+                  <span class="block text-sm text-stone">{r.meta} &nearr;</span>
+                </span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+)}
+
+<script>
+  // Replace the button with the embed in place, only once the visitor asks for it.
+  document.querySelectorAll<HTMLButtonElement>('.video-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.video;
+      if (!id) return;
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
+      frame.title = btn.textContent?.trim() ?? 'Aufnahme';
+      frame.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      frame.allowFullscreen = true;
+      frame.className = 'aspect-video w-full rounded-lg border border-[var(--color-line)]';
+      btn.replaceWith(frame);
+    });
+  });
+</script>

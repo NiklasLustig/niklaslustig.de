@@ -1,27 +1,26 @@
 ---
 import Section from './Section.astro';
-// mailto avoids a form (no spam handling, no DSGVO form-data questions).
-// Add a Netlify form later only if he wants one.
-const EMAIL = 'nikellustig@gmail.com';
-const contexts = ['Gottesdienst', 'Konzert', 'Trauung & Trauerfeier', 'Chor- und Ensemblearbeit'];
+import { EMAIL, contact } from '../data/site';
+// mailto rather than a form: no spam handling, no form-data questions under the DSGVO.
 ---
 <Section id="kontakt" eyebrow="Kontakt" heading="Zusammenarbeit">
-  <div class="grid gap-12 md:grid-cols-[1fr_1fr]">
+  <div class="grid gap-12 md:grid-cols-2 md:gap-16">
     <div>
-      <p class="text-lg leading-relaxed text-stone">
-        Für Konzerte, Gottesdienste, Trauungen und Chorprojekte &mdash; eine kurze Mail
-        mit Datum, Ort und Anlass genügt.
-      </p>
-      <a href={`mailto:${EMAIL}`} class="mt-6 inline-block font-display text-2xl text-brass underline-offset-4 hover:underline">
+      <p class="text-lg leading-relaxed text-stone">{contact.lead}</p>
+      <a
+        href={`mailto:${EMAIL}`}
+        class="font-display mt-7 inline-block text-brass underline-offset-4 hover:underline"
+        style="font-size: var(--text-h3)"
+      >
         {EMAIL}
       </a>
     </div>
     <div>
-      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-brass">Im Rahmen von</p>
-      <ul class="space-y-2 text-parchment">
-        {contexts.map((c) => (
+      <p class="mb-5 text-xs uppercase tracking-[0.32em] text-brass">Im Rahmen von</p>
+      <ul class="space-y-3 text-parchment">
+        {contact.contexts.map((c) => (
           <li class="flex items-center gap-3">
-            <span class="h-px w-4 bg-brass"></span>{c}
+            <span class="h-px w-4 shrink-0 bg-brass"></span>{c}
           </li>
         ))}
       </ul>

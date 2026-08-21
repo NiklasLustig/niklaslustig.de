@@ -3,3 +3,35 @@ dist/
 .astro/
 .netlify/
 .DS_Store
+
+# Full-resolution camera originals must not enter the repo. src/assets/photos holds
+# web-sized derivatives only (long edge <= 2400px); originals stay on the Desktop.
+*.NEF
+*.MOV
+src/assets/photos/**/DSC_*.JPG
+
+# --- concert photography -------------------------------------------------
+# The repo is PUBLIC. Only photos the site actually displays are committed;
+# every other frame stays local, including shots with identifiable third
+# parties who did not consent to publication.
+#
+# Publishing a photo is therefore TWO steps:
+#   1. add its import to src/lib/photos.ts
+#   2. add a matching "!" line below
+# The list mirrors src/lib/photos.ts — keep them in sync.
+src/assets/photos/**/*.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/chor-von-hinten.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/detail-beethoven-partitur.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/detail-cello.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/detail-weber-freischuetz.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/dirigat-aufschwung.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/dirigat-beide-haende.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/dirigat-zeigend.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/portrait-laechelnd.jpg
+!src/assets/photos/2026-05-31-mensch-natur-gott/portrait-verschraenkt.jpg
+!src/assets/photos/2026-08-16-abschlusskonzert/haende-bewegung.jpg
+!src/assets/photos/2026-08-16-abschlusskonzert/haende-manuale.jpg
+!src/assets/photos/2026-08-16-abschlusskonzert/orgel-spieltisch.jpg
+!src/assets/photos/2026-08-16-abschlusskonzert/portrait-nach-konzert.jpg
+!src/assets/photos/2026-08-16-abschlusskonzert/raum-empore.jpg
+!src/assets/photos/2026-08-16-abschlusskonzert/raum-prospekt.jpg

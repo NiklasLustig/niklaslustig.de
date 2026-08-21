@@ -1,13 +1,26 @@
 [
   {
     "id": "2026-05-31-mensch-natur-gott",
-    "title": "Mensch Natur Gott — Oratorienkonzert",
+    "title": "«Mensch Natur Gott» — Oratorienkonzert",
     "date": "2026-05-31",
     "time": "17:00",
     "venue": "St. Josef, Behaimstraße 39",
     "city": "Berlin",
-    "program": "Beethoven, Mendelssohn, Mozart, Weber",
+    "role": "Leitung",
+    "program": "Beethoven — Symphonie Nr. 6 «Pastorale» · Weber — Der Freischütz, Ouvertüre · Mendelssohn · Mozart",
     "ticketUrl": "",
-    "note": "Leitung: Niklas Lustig, Hendrik Rüßmann. Eintritt frei, Spenden erbeten."
+    "note": "Leitung: Niklas Lustig und Hendrik Rüßmann. Eintritt frei, Spenden erbeten."
+  },
+  {
+    "id": "2026-08-16-abschlusskonzert",
+    "title": "Abschlusskonzert — Orgelkonzert",
+    "date": "2026-08-16",
+    "time": "19:00",
+    "venue": "Pauluskirche Zehlendorf",
+    "city": "Berlin",
+    "role": "Orgel",
+    "program": "",
+    "ticketUrl": "",
+    "note": "Abschlusskonzert im Rahmen der Kirchenmusikausbildung."
   }
 ]

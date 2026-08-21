@@ -23,7 +23,7 @@ const VIDEO_ID = 'ZLliXV4eI6o';
       // removed right after, which would also destroy the iframe if it
       // were still nested inside it
       const player = document.createElement('div');
-      player.innerHTML = `<iframe width="0" height="0" style="position:absolute" src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1" allow="autoplay" title="audio"></iframe>`;
+      player.innerHTML = `<iframe width="0" height="0" style="position:absolute" src="https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1" allow="autoplay" title="audio"></iframe>`;
       document.body.appendChild(player);
       gate.remove();
     });

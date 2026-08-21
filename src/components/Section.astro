@@ -1,12 +1,13 @@
 ---
 // Shared section shell: eyebrow label + heading + slotted content.
-interface Props { id: string; eyebrow: string; heading: string; }
-const { id, eyebrow, heading } = Astro.props;
+interface Props { id: string; eyebrow: string; heading: string; lead?: string; wide?: boolean; }
+const { id, eyebrow, heading, lead, wide = false } = Astro.props;
 ---
 <section id={id} class="border-t border-[var(--color-line)] py-20 sm:py-28">
-  <div class="mx-auto max-w-5xl px-6">
-    <p class="mb-3 text-xs uppercase tracking-[0.28em] text-brass">{eyebrow}</p>
-    <h2 class="mb-12 font-display text-3xl text-parchment sm:text-4xl">{heading}</h2>
-    <slot />
+  <div class={`mx-auto px-6 ${wide ? 'max-w-7xl' : 'max-w-6xl'}`}>
+    <p class="mb-3 text-xs uppercase tracking-[0.32em] text-brass">{eyebrow}</p>
+    <h2 class="font-display text-parchment" style="font-size: var(--text-h2)">{heading}</h2>
+    {lead && <p class="mt-5 text-lg leading-relaxed text-stone">{lead}</p>}
+    <div class="mt-12"><slot /></div>
   </div>
 </section>

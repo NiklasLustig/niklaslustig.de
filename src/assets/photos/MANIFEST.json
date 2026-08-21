@@ -1,0 +1,184 @@
+{
+  "_note": "Provenance for every photo in this folder. sharp strips EXIF during resizing, so the original frame number is recorded here instead. inLennertsSelection = present in \"Fotos-niklas-konzert-16-08-2026/Nähere Auswahl\".",
+  "events": {
+    "2026-05-31-mensch-natur-gott": {
+      "date": "2026-05-31",
+      "title": "«Mensch Natur Gott» — Oratorienkonzert",
+      "venue": "St. Josef, Berlin",
+      "photos": {
+        "portrait-verbeugung": {
+          "frame": "DSC_1323",
+          "md5": "3dc5da7b79d7f4dae889cd74820deb7f",
+          "inLennertsSelection": true
+        },
+        "portrait-laechelnd": {
+          "frame": "DSC_1324",
+          "md5": "cf9b9cbe21020507d7fefa0ac3f2f731",
+          "inLennertsSelection": true
+        },
+        "portrait-profil": {
+          "frame": "DSC_1325",
+          "md5": "de9adca239081decb0710cc433afe9c1",
+          "inLennertsSelection": true
+        },
+        "portrait-verschraenkt": {
+          "frame": "DSC_1326",
+          "md5": "fe0fddb5c1f84e57da299bc20dc7b4f7",
+          "inLennertsSelection": true
+        },
+        "detail-notenpult": {
+          "frame": "DSC_1327",
+          "md5": "18f4853d3216d2e38baecf3309c7e359",
+          "inLennertsSelection": true
+        },
+        "detail-weber-freischuetz": {
+          "frame": "DSC_1329",
+          "md5": "3ba92b3869d251ec3916b8512a424a72",
+          "inLennertsSelection": true
+        },
+        "detail-cello": {
+          "frame": "DSC_1330",
+          "md5": "31c446f7b70ad47709b3dad36586f04f",
+          "inLennertsSelection": true
+        },
+        "detail-orgelpositiv": {
+          "frame": "DSC_1331",
+          "md5": "9db12f3359b2b13b93cca49c1fca23ae",
+          "inLennertsSelection": true
+        },
+        "chor-mit-kollege": {
+          "frame": "DSC_1332",
+          "md5": "faca62f6632532d100b8d06883501e6d",
+          "inLennertsSelection": true
+        },
+        "chor-von-hinten": {
+          "frame": "DSC_1347",
+          "md5": "71ed1c1f32dfd66b3a6640361168aaa4",
+          "inLennertsSelection": true
+        },
+        "chor-weite": {
+          "frame": "DSC_1348",
+          "md5": "60cd7bc4171c9ed8a4f409921ab715fe",
+          "inLennertsSelection": true
+        },
+        "dirigat-kontrabass": {
+          "frame": "DSC_1390",
+          "md5": "53deb8b485deae6cf5f4d6dd1f008523",
+          "inLennertsSelection": true
+        },
+        "dirigat-beide-haende": {
+          "frame": "DSC_1403",
+          "md5": "9a4eb6deb35c6768fe3772782960bfae",
+          "inLennertsSelection": true
+        },
+        "dirigat-einsatz": {
+          "frame": "DSC_1404",
+          "md5": "faf1a7cba460dca04090b7678ca3efee",
+          "inLennertsSelection": true
+        },
+        "dirigat-zeigend": {
+          "frame": "DSC_1407",
+          "md5": "7b4625fe833688db9c143efe2e7f72f3",
+          "inLennertsSelection": true
+        },
+        "dirigat-aufschwung": {
+          "frame": "DSC_1466",
+          "md5": "0236fa51671b26ab84ef94ad69e07155",
+          "inLennertsSelection": true
+        },
+        "dirigat-von-hinten": {
+          "frame": "DSC_1467",
+          "md5": "77f28f353fda269ba09b3c708c812225",
+          "inLennertsSelection": true
+        },
+        "detail-programmheft": {
+          "frame": "DSC_1598",
+          "md5": "9a007875973d10bd2c9232692b85ea25",
+          "inLennertsSelection": true
+        },
+        "detail-beethoven-pult": {
+          "frame": "DSC_1602",
+          "md5": "9a7a6c7f08cb8117e86125954b3c9dbc",
+          "inLennertsSelection": true
+        },
+        "detail-beethoven-partitur": {
+          "frame": "DSC_1603",
+          "md5": "cbab6aa0ecee0adb0a382d27804bce5e",
+          "inLennertsSelection": true
+        },
+        "detail-offene-noten": {
+          "frame": "DSC_1606",
+          "md5": "5090973865881c73a4fe01fd014a64ab",
+          "inLennertsSelection": true
+        }
+      }
+    },
+    "2026-08-16-abschlusskonzert": {
+      "date": "2026-08-16",
+      "title": "Abschlusskonzert — Orgelkonzert",
+      "venue": "Pauluskirche Berlin-Zehlendorf",
+      "photos": {
+        "raum-fenster": {
+          "frame": "DSC_0020",
+          "md5": "4b7b43bf8c5957b00ceff31d7d9a6bde",
+          "inLennertsSelection": false
+        },
+        "raum-innenraum": {
+          "frame": "DSC_0058",
+          "md5": "d4a4f17f9fd2e06df18834c8f6d85e99",
+          "inLennertsSelection": true
+        },
+        "raum-prospekt": {
+          "frame": "DSC_0087",
+          "md5": "0781da0965dfb1b3547b14752e63bec9",
+          "inLennertsSelection": true
+        },
+        "raum-empore": {
+          "frame": "DSC_0088",
+          "md5": "f34616082e85d5833dfad65b69758076",
+          "inLennertsSelection": false
+        },
+        "orgel-spieltisch-stehend": {
+          "frame": "DSC_0089",
+          "md5": "3184fffa01f6502cdef91f421c60f122",
+          "inLennertsSelection": true
+        },
+        "orgel-spieltisch": {
+          "frame": "DSC_0092",
+          "md5": "cdc94d9848da88581e9a31034bb1f730",
+          "inLennertsSelection": false
+        },
+        "orgel-profil": {
+          "frame": "DSC_0094",
+          "md5": "be82d2ccb29698be52a7146e59e76266",
+          "inLennertsSelection": true
+        },
+        "orgel-noten": {
+          "frame": "DSC_0095",
+          "md5": "4d27796421ced0f704a00eaf778ec335",
+          "inLennertsSelection": true
+        },
+        "orgel-von-hinten": {
+          "frame": "DSC_0107",
+          "md5": "f04422e5d22200913ac779ec86d5ec27",
+          "inLennertsSelection": true
+        },
+        "haende-manuale": {
+          "frame": "DSC_0108",
+          "md5": "33d127c28559df253b519f5cdea9db60",
+          "inLennertsSelection": false
+        },
+        "haende-bewegung": {
+          "frame": "DSC_0109",
+          "md5": "f8c9cce909207c9144120eca3b207d01",
+          "inLennertsSelection": false
+        },
+        "portrait-nach-konzert": {
+          "frame": "DSC_0143",
+          "md5": "3e937599a47a427ac77e0c8ce745302c",
+          "inLennertsSelection": false
+        }
+      }
+    }
+  }
+}

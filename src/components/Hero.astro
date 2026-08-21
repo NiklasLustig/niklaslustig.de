@@ -1,44 +1,57 @@
 ---
+import { Image } from 'astro:assets';
 import Pipes from './Pipes.astro';
-const NAME = 'Niklas Lustig';
----
-<section id="top" class="relative">
-  <div class="relative aspect-[16/9] w-full overflow-hidden">
-    <img
-      src="/images/conductor_portrait.svg"
-      alt=""
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-      loading="eager"
-      class="h-full w-full object-cover"
-      style="transform: scale(1.18) translateY(-8%);"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/20 to-transparent"></div>
-    <div class="absolute inset-x-0 bottom-0 mx-auto max-w-5xl px-6 pb-12 sm:pb-16">
-      <h1 class="font-display text-3xl leading-[1.05] text-parchment sm:text-5xl md:text-6xl">
-        Orgel ist nur ein Instrument, Liebe ist die wahre Tonart.
-      </h1>
-      <p class="mt-6 text-sm uppercase tracking-[0.28em] text-brass">{NAME}</p>
-      <a href="#kontakt" class="mt-8 inline-block rounded-full bg-brass px-6 py-3 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5">
-        Anfrage senden
-      </a>
-    </div>
-  </div>
+import { photo } from '../lib/photos';
+import { NAME, ROLE, hero } from '../data/site';
 
-  <div class="mx-auto max-w-5xl px-6 pt-10 pb-16 sm:pt-14 sm:pb-20">
-    <p class="max-w-xl text-lg leading-relaxed text-stone">
-      Kirchenmusiker, Organist und Chorleiter in Berlin. Kirchenmusik-Student an der
-      Universität der Künste Berlin bei Henry Fairs (Orgel) und Kai-Uwe Jirka (Chorleitung).
-    </p>
-    <div class="mt-8 flex flex-wrap items-center gap-6">
-      <a href="#termine" class="text-sm text-stone underline-offset-4 hover:text-parchment hover:underline">
-        Termine
-      </a>
-      <a href="#hoerproben" class="text-sm text-stone underline-offset-4 hover:text-parchment hover:underline">
-        Hören
-      </a>
+// Editorial split rather than a full-bleed banner: the concert photography is
+// portrait-orientation, and a studio portrait will be too. Swapping the hero is
+// a one-word change to `hero.image` in src/data/site.ts.
+const img = photo(hero.image);
+---
+<section id="top" class="border-b border-[var(--color-line)]">
+  <div class="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-16 md:py-24">
+    <div class="order-2 md:order-1">
+      <p class="text-xs uppercase tracking-[0.32em] text-brass">{ROLE}</p>
+      <h1
+        class="font-display mt-5 leading-[0.98] text-parchment"
+        style="font-size: var(--text-claim)"
+      >
+        {hero.claim}
+      </h1>
+      <p class="mt-7 text-lg leading-relaxed text-stone">{hero.intro}</p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a
+          href="#kontakt"
+          class="rounded-full bg-brass px-6 py-3 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
+        >
+          Anfrage senden
+        </a>
+        <a
+          href="#termine"
+          class="rounded-full border border-[var(--color-line)] px-6 py-3 text-sm text-parchment transition-colors hover:border-brass/60 hover:text-brass"
+        >
+          Termine
+        </a>
+      </div>
+
+      <Pipes count={19} height={64} class="mt-12 opacity-90" />
     </div>
-    <Pipes count={19} height={80} class="mt-16 opacity-90" />
+
+    <div class="order-1 md:order-2">
+      <figure class="relative overflow-hidden rounded-lg border border-[var(--color-line)]">
+        <Image
+          src={img}
+          alt={hero.alt}
+          widths={[480, 720, 960, 1280]}
+          sizes="(min-width: 768px) 42vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-[4/5] w-full object-cover md:aspect-[3/4]"
+        />
+        <figcaption class="sr-only">{NAME}, {ROLE}</figcaption>
+      </figure>
+    </div>
   </div>
 </section>

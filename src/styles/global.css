@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
 @theme {
+  /* Near-black ground, muted brass, warm parchment. Sampled to sit with the
+     concert photography: the organ desk light is the warm end of the brass ramp. */
   --color-ink: #0A0906;
-  --color-ink-raised: #161410;
+  --color-ink-raised: #14120E;
   --color-brass: #C3A26B;
+  --color-brass-warm: #E2BC80;
   --color-brass-dim: #8A7248;
   --color-parchment: #E9E4D8;
   --color-stone: #9E9A8E;
@@ -12,6 +15,11 @@
 
   --font-display: "Fraunces Variable", Georgia, serif;
   --font-body: "Instrument Sans Variable", system-ui, sans-serif;
+
+  /* Fluid display scale — one ramp, used everywhere headings appear. */
+  --text-claim: clamp(2.25rem, 1.2rem + 4.6vw, 5rem);
+  --text-h2: clamp(1.75rem, 1.3rem + 1.9vw, 2.75rem);
+  --text-h3: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem);
 }
 
 html {
@@ -20,6 +28,7 @@ html {
   color: var(--color-parchment);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body { margin: 0; }
@@ -28,8 +37,38 @@ body { margin: 0; }
 
 a { color: inherit; text-decoration: none; }
 
-.font-display { letter-spacing: -0.01em; }
+/* Fraunces is a variable font with an optical-size axis: larger text wants the
+   display cut (higher opsz), which tightens the serifs and narrows the joins. */
+.font-display {
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 72, "SOFT" 0, "WONK" 0;
+}
+
 p { max-width: var(--measure); }
+
+/* Keyboard focus was invisible before — brass ring on every interactive element. */
+/* Outlines already follow the element's own border-radius — setting a radius here
+   would flatten every rounded-full button the moment it takes focus. */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+/* Skip link: visible only once focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-brass);
+  color: var(--color-ink);
+  border-radius: 9999px;
+}
 
 /* Pipe-rank reveal (organ Prospekt). Respects reduced motion. */
 @keyframes pipe-rise {
@@ -38,7 +77,14 @@ p { max-width: var(--measure); }
 }
 .pipe { transform-origin: bottom; animation: pipe-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
+/* Expandable blocks (Vita, Repertoire) — marker replaced by a rotating rule. */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary .chevron { transition: transform 0.25s ease; }
+details[open] > summary .chevron { transform: rotate(90deg); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .pipe { animation: none; transform: scaleY(1); }
+  details > summary .chevron { transition: none; }
 }

@@ -1,10 +1,13 @@
 ---
-const NAME = 'Niklas Lustig';
+import { NAME, ROLE, PHOTO_CREDIT } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="border-t border-[var(--color-line)] py-10">
-  <div class="mx-auto flex max-w-5xl flex-col gap-4 px-6 text-sm text-stone sm:flex-row sm:items-center sm:justify-between">
-    <p>&copy; {year} {NAME} &middot; Kirchenmusik in Berlin</p>
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 text-sm text-stone sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p>&copy; {year} {NAME} &middot; {ROLE}</p>
+      {PHOTO_CREDIT && <p class="mt-1">Konzertfotos: {PHOTO_CREDIT}</p>}
+    </div>
     <nav class="flex gap-6">
       <a href="/impressum" class="hover:text-parchment">Impressum</a>
       <a href="/datenschutz" class="hover:text-parchment">Datenschutz</a>

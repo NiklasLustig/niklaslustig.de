@@ -3,16 +3,17 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import ReferrerGate from '../components/ReferrerGate.astro';
 import Hero from '../components/Hero.astro';
-import Aktuell from '../components/Aktuell.astro';
-import Vita from '../components/Vita.astro';
 import Termine from '../components/Termine.astro';
-import Hoerproben from '../components/Hoerproben.astro';
+import Vita from '../components/Vita.astro';
+import Repertoire from '../components/Repertoire.astro';
+import Aufnahmen from '../components/Aufnahmen.astro';
+import Galerie from '../components/Galerie.astro';
 import Presse from '../components/Presse.astro';
 import Kontakt from '../components/Kontakt.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import { NAME, ROLE, CITY, EMAIL } from '../data/site';
 
-const NAME = 'Niklas Lustig';
 const today = new Date().toISOString().slice(0, 10);
 const events = (await getCollection('concerts'))
   .map((c) => c.data)
@@ -32,20 +33,23 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: NAME,
-  jobTitle: 'Kirchenmusiker, Organist',
-  address: { '@type': 'PostalAddress', addressLocality: 'Berlin', addressCountry: 'DE' },
+  jobTitle: ROLE,
+  email: `mailto:${EMAIL}`,
+  address: { '@type': 'PostalAddress', addressLocality: CITY, addressCountry: 'DE' },
   performerIn: events,
 };
 ---
 <Base jsonLd={jsonLd}>
   <ReferrerGate />
+  <a href="#main" class="skip-link">Zum Inhalt springen</a>
   <Nav />
-  <main>
+  <main id="main">
     <Hero />
-    <Aktuell />
-    <Vita />
     <Termine />
-    <Hoerproben />
+    <Vita />
+    <Repertoire />
+    <Aufnahmen />
+    <Galerie />
     <Presse />
     <Kontakt />
   </main>

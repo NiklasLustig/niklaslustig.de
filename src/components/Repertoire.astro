@@ -1,0 +1,38 @@
+---
+import Section from './Section.astro';
+import { repertoire } from '../data/site';
+
+// CONTENT-TODO entries stay in the data file as reminders but never reach the
+// page. Groups left with no works are dropped, so the section grows gradually.
+const groups = repertoire
+  .map((g) => ({ ...g, works: g.works.filter((w) => !w.includes('CONTENT-TODO')) }))
+  .filter((g) => g.works.length > 0);
+---
+{groups.length > 0 && (
+  <Section
+    id="repertoire"
+    eyebrow="Repertoire"
+    heading="Werke"
+    lead="Ausgewählte Werke aus Konzerten und Studium. Programme werden auf Anfrage zusammengestellt."
+  >
+    <div class="divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+      {groups.map((g, i) => (
+        <details open={i === 0} class="py-6">
+          <summary class="flex items-center gap-3">
+            <span class="chevron inline-block text-brass">&rsaquo;</span>
+            <span class="font-display text-parchment" style="font-size: var(--text-h3)">{g.group}</span>
+            <span class="ml-auto text-sm text-stone">{g.works.length}</span>
+          </summary>
+          <ul class="mt-5 space-y-3 pl-7">
+            {g.works.map((w) => (
+              <li class="flex gap-4 text-stone">
+                <span class="mt-[0.7em] h-px w-4 shrink-0 bg-brass-dim"></span>
+                <span>{w}</span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      ))}
+    </div>
+  </Section>
+)}

@@ -2,6 +2,7 @@
 import '@fontsource-variable/fraunces';
 import '@fontsource-variable/instrument-sans';
 import '../styles/global.css';
+import { NAME, ROLE, CITY } from '../data/site';
 
 interface Props {
   title?: string;
@@ -9,15 +10,16 @@ interface Props {
   jsonLd?: object;
 }
 
-// CONTENT-TODO: set the real name and description
-const NAME = 'Niklas Lustig';
 const {
-  title = `${NAME} — Kirchenmusiker & Organist, Berlin`,
-  description = 'Kirchenmusiker und Organist in Berlin. Konzerte, Gottesdienste, Trauungen und Trauerfeiern.',
+  title = `${NAME} — ${ROLE}, ${CITY}`,
+  description =
+    'Niklas Lustig, Dirigent und Organist in Berlin. Chor- und Orchesterleitung, ' +
+    'Orgelkonzerte, Termine und Kontakt.',
   jsonLd,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/images/og.jpg', Astro.site).href;
 ---
 <!doctype html>
 <html lang="de">
@@ -27,10 +29,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0A0906" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="de_DE" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>

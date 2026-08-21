@@ -1,21 +1,62 @@
 ---
-const NAME = 'Niklas Lustig';
+import { NAME } from '../data/site';
+// Absolute hrefs so the anchors resolve to the homepage from /impressum and /datenschutz.
 const links = [
-  { href: '/#aktuell', label: 'Aktuell' },
   { href: '/#vita', label: 'Vita' },
+  { href: '/#repertoire', label: 'Repertoire' },
   { href: '/#termine', label: 'Termine' },
-  { href: '/#hoerproben', label: 'Hören' },
+  { href: '/#aufnahmen', label: 'Hören' },
+  { href: '/#bilder', label: 'Bilder' },
+  { href: '/#presse', label: 'Presse' },
   { href: '/#kontakt', label: 'Kontakt' },
 ];
 ---
 <header class="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[var(--color-ink)]/85 backdrop-blur">
-  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
     <a href="/#top" class="font-display text-lg tracking-tight text-parchment">{NAME}</a>
-    <ul class="hidden gap-8 text-sm text-stone sm:flex">
+
+    <ul class="hidden gap-7 text-sm text-stone lg:flex">
       {links.map((l) => (
         <li><a href={l.href} class="transition-colors hover:text-brass">{l.label}</a></li>
       ))}
     </ul>
-    <a href="/#kontakt" class="text-sm text-brass sm:hidden">Kontakt</a>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="text-sm text-brass lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      Menü
+    </button>
   </nav>
+
+  <div id="mobile-menu" hidden class="border-t border-[var(--color-line)] lg:hidden">
+    <ul class="mx-auto max-w-6xl px-6 py-2">
+      {links.map((l) => (
+        <li>
+          <a href={l.href} class="block border-b border-[var(--color-line)] py-3 text-parchment last:border-0">
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      menu.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Schließen' : 'Menü';
+    };
+    toggle.addEventListener('click', () => setOpen(menu.hidden));
+    // Tapping a link jumps to the section; leaving the menu open would cover it.
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  }
+</script>

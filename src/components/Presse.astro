@@ -1,14 +1,64 @@
 ---
+import { Image } from 'astro:assets';
 import Section from './Section.astro';
-// CONTENT-TODO: once a real press kit (bio PDF, image set) exists, link it
-// here directly instead of routing through email.
-const EMAIL = 'nikellustig@gmail.com';
+import { photo } from '../lib/photos';
+import { EMAIL, quotes, pressKit } from '../data/site';
+
+const cover = photo('dirigat-zeigend');
 ---
-<Section id="presse" eyebrow="Presse" heading="Material für Veranstalter">
-  <p class="max-w-2xl text-lg leading-relaxed text-stone">
-    Biografie, Programme und Bildmaterial für Ankündigungen und Programmhefte auf Anfrage.
-  </p>
-  <a href={`mailto:${EMAIL}?subject=Pressematerial`} class="mt-6 inline-block text-sm text-brass underline underline-offset-4">
-    Material anfragen
-  </a>
+<Section
+  id="presse"
+  eyebrow="Presse"
+  heading="Material für Veranstalter"
+  lead="Biografie, Programme und Bildmaterial in Druckauflösung für Ankündigungen und Programmhefte."
+>
+  {quotes.length > 0 && (
+    <div class="mb-14 grid gap-8 sm:grid-cols-2">
+      {quotes.map((q) => (
+        <blockquote class="border-l border-brass-dim pl-6">
+          <p class="font-display text-parchment" style="font-size: var(--text-h3)">«{q.text}»</p>
+          <footer class="mt-3 text-sm text-stone">{q.source}</footer>
+        </blockquote>
+      ))}
+    </div>
+  )}
+
+  <div class="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-start md:gap-14">
+    <Image
+      src={cover}
+      alt="Niklas Lustig beim Dirigieren, St. Josef Berlin"
+      widths={[420, 640, 900]}
+      sizes="(min-width: 768px) 40vw, 100vw"
+      loading="lazy"
+      class="w-full rounded-lg border border-[var(--color-line)] object-cover"
+    />
+
+    <div>
+      {pressKit.length > 0 ? (
+        <ul class="divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+          {pressKit.map((f) => (
+            <li>
+              <a href={f.href} download class="flex items-center gap-4 py-4 transition-colors hover:text-brass">
+                <span class="text-brass">&darr;</span>
+                <span class="flex-1">{f.label}</span>
+                <span class="text-sm text-stone">{f.meta}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-lg leading-relaxed text-stone">
+          Ein Pressekit zum Download ist in Vorbereitung. Bis dahin schicke ich Biografie
+          und Bildmaterial gern direkt zu.
+        </p>
+      )}
+
+      <a
+        href={`mailto:${EMAIL}?subject=Pressematerial`}
+        class="mt-8 inline-block rounded-full border border-[var(--color-line)] px-6 py-3 text-sm text-parchment transition-colors hover:border-brass/60 hover:text-brass"
+      >
+        Material anfragen
+      </a>
+    </div>
+  </div>
 </Section>

@@ -9,7 +9,7 @@
 
 export const NAME = 'Niklas Lustig';
 export const ROLE = 'Dirigent & Organist';
-export const EMAIL = 'nikellustig@gmail.com';
+export const EMAIL = 'kontakt@niklaslustig.de';
 export const CITY = 'Berlin';
 
 /** Photo credit shown in the footer. */

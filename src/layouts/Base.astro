@@ -42,5 +42,15 @@ const ogImage = new URL('/images/og.jpg', Astro.site).href;
   </head>
   <body>
     <slot />
+    {/* GoatCounter: cookieless, no personal data, no cross-site tracking.
+        Production only, so local development and previews are not counted. */}
+    {import.meta.env.PROD && (
+      <script
+        is:inline
+        data-goatcounter="https://niklaslustig.goatcounter.com/count"
+        async
+        src="https://gc.zgo.at/count.js"
+      />
+    )}
   </body>
 </html>

@@ -179,6 +179,48 @@
           "inLennertsSelection": false
         }
       }
+    },
+    "2026-09-16-portraets": {
+      "date": "2026-09-16",
+      "title": "Porträtserie",
+      "venue": "Museumsinsel, Berlin",
+      "photos": {
+        "portraet-bruestung": {
+          "frame": "DSC_0230",
+          "md5": "4831068c448fe34c73648007931472c9",
+          "inLennertsSelection": true
+        },
+        "portraet-ernst": {
+          "frame": "DSC_0242",
+          "md5": "38fdd49f480256640a9e64450ea527b3",
+          "inLennertsSelection": true
+        },
+        "portraet-ganzfigur": {
+          "frame": "DSC_0249",
+          "md5": "dc0506b1a19af3e4944f5a37be6ad58c",
+          "inLennertsSelection": true
+        },
+        "portraet-kolonnade": {
+          "frame": "DSC_0171",
+          "md5": "8f507b81ea14d2ba2ff8ab6a83d5a0cb",
+          "inLennertsSelection": true
+        },
+        "portraet-nah": {
+          "frame": "DSC_0178",
+          "md5": "55061e270af595c8a6b4e6fab1002834",
+          "inLennertsSelection": true
+        },
+        "portraet-saeule": {
+          "frame": "DSC_0163",
+          "md5": "0f7598ff928ae4620e8db43b521f2bdd",
+          "inLennertsSelection": true
+        },
+        "portraet-schulter": {
+          "frame": "DSC_0176",
+          "md5": "4afed048202c1974c7ac3775018f2999",
+          "inLennertsSelection": true
+        }
+      }
     }
   }
 }

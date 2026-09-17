@@ -30,6 +30,14 @@ import raumProspekt from '../assets/photos/2026-08-16-abschlusskonzert/raum-pros
 import raumEmpore from '../assets/photos/2026-08-16-abschlusskonzert/raum-empore.jpg';
 import portraitNachKonzert from '../assets/photos/2026-08-16-abschlusskonzert/portrait-nach-konzert.jpg';
 
+// 16 Sep 2026 — Porträtserie, Museumsinsel Berlin
+import portraetNah from '../assets/photos/2026-09-16-portraets/portraet-nah.jpg';
+import portraetGanzfigur from '../assets/photos/2026-09-16-portraets/portraet-ganzfigur.jpg';
+import portraetBruestung from '../assets/photos/2026-09-16-portraets/portraet-bruestung.jpg';
+import portraetErnst from '../assets/photos/2026-09-16-portraets/portraet-ernst.jpg';
+import portraetSchulter from '../assets/photos/2026-09-16-portraets/portraet-schulter.jpg';
+import portraetKolonnade from '../assets/photos/2026-09-16-portraets/portraet-kolonnade.jpg';
+
 export const photos: Record<string, ImageMetadata> = {
   'dirigat-beide-haende': dirigatBeideHaende,
   'dirigat-aufschwung': dirigatAufschwung,
@@ -46,6 +54,12 @@ export const photos: Record<string, ImageMetadata> = {
   'raum-prospekt': raumProspekt,
   'raum-empore': raumEmpore,
   'portrait-nach-konzert': portraitNachKonzert,
+  'portraet-nah': portraetNah,
+  'portraet-ganzfigur': portraetGanzfigur,
+  'portraet-bruestung': portraetBruestung,
+  'portraet-ernst': portraetErnst,
+  'portraet-schulter': portraetSchulter,
+  'portraet-kolonnade': portraetKolonnade,
 };
 
 export function photo(slug: string): ImageMetadata {

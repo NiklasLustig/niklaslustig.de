@@ -93,15 +93,26 @@ export const recordings: Array<{
   /** Slug aus src/lib/posters.ts. Der erste Eintrag mit Poster wird gross
    *  ausgespielt; weitere Aufnahmen erscheinen darunter als Zeile. */
   poster?: string;
+  /** Mitwirkende, nur beim grossen Eintrag ausgespielt. */
+  credits?: Array<{ k: string; v: string }>;
 }> = [
   {
     // Vollständige Aufzeichnung, veröffentlicht vom Kanal der Kirchengemeinde.
     // src ist bei kind: 'youtube' die Video-ID, nicht die volle URL.
     title: '«Mensch Natur Gott» — Oratorienkonzert',
-    meta: 'Oratorienchor und Orchester St. Josef · Berlin, 31. Mai 2026',
+    meta: 'St. Josef, Berlin · 31. Mai 2026',
     kind: 'youtube',
     src: 'XXbsTmILF84',
     poster: 'mensch-natur-gott',
+    // Besetzung wie auf dem Konzertplakat.
+    credits: [
+      { k: 'Chor & Orchester', v: 'Oratorienchor und Orchester St. Josef' },
+      { k: 'Sopran', v: 'Polly Ott' },
+      { k: 'Alt', v: 'Diana Kantner' },
+      { k: 'Tenor', v: 'András Adamik' },
+      { k: 'Bass', v: 'Manuel Nickert' },
+      { k: 'Leitung', v: 'Niklas Lustig und Hendrik Rüßmann' },
+    ],
   },
 ];
 

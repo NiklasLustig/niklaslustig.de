@@ -29,7 +29,6 @@ const blur = art ? await getImage({ src: art, width: 64 }) : undefined;
     id="aufnahmen"
     eyebrow="Hören"
     heading="Aufnahmen"
-    lead="Mitschnitte werden erst geladen, wenn Sie sie starten — vorher wird nichts an Dritte übertragen."
   >
     {feature && art && (
       <figure class="m-0">
@@ -68,11 +67,24 @@ const blur = art ? await getImage({ src: art, width: 64 }) : undefined;
           </span>
         </button>
 
-        <figcaption class="mt-5 sm:flex sm:items-baseline sm:justify-between sm:gap-6">
-          <p class="font-display text-parchment" style="font-size: var(--text-h3, 1.5rem)">
-            {feature.title}
-          </p>
-          <p class="mt-1 text-sm text-stone sm:mt-0 sm:shrink-0">{feature.meta}</p>
+        <figcaption class="mt-5">
+          <div class="sm:flex sm:items-baseline sm:justify-between sm:gap-6">
+            <p class="font-display text-parchment" style="font-size: var(--text-h3, 1.5rem)">
+              {feature.title}
+            </p>
+            <p class="mt-1 text-sm text-stone sm:mt-0 sm:shrink-0">{feature.meta}</p>
+          </div>
+
+          {feature.credits && feature.credits.length > 0 && (
+            <dl class="mt-8 grid gap-5 border-l border-[var(--color-line)] pl-6 sm:grid-cols-2 lg:grid-cols-3">
+              {feature.credits.map((c) => (
+                <div>
+                  <dt class="text-xs uppercase tracking-widest text-brass">{c.k}</dt>
+                  <dd class="mt-1 text-parchment">{c.v}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </figcaption>
       </figure>
     )}

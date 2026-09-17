@@ -1,7 +1,7 @@
 # niklaslustig.de
 
 Static site for **Niklas Lustig — Dirigent & Organist**, Berlin.
-Astro + Tailwind v4 + self-hosted fonts. Free to host (Netlify).
+Astro + Tailwind v4 + self-hosted fonts. Hosted on Vercel.
 
 ## Run
 ```
@@ -97,7 +97,9 @@ data is empty, so the page never shows a placeholder. Entries containing
   `MANIFEST.json` flags provenance for every file.
 
 ## Deploy
-Push to GitHub → Netlify builds `npm run build`, publishes `dist`.
+Push to GitHub → Vercel builds `npm run build`, publishes `dist`.
+Response headers live in `vercel.json`, not in any Netlify config — the site
+was moved to Vercel and a stale `netlify.toml` silently did nothing.
 Domain is set in `astro.config.mjs` (`site:`), which also drives canonical URLs
 and the sitemap.
 

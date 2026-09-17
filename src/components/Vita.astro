@@ -4,7 +4,7 @@ import Section from './Section.astro';
 import { photo } from '../lib/photos';
 import { vita } from '../data/site';
 
-const portrait = photo('portrait-verschraenkt');
+const portrait = photo('portraet-nah');
 ---
 <Section id="vita" eyebrow="Vita" heading="Zur Person">
   <div class="grid gap-12 md:grid-cols-[1.35fr_1fr] md:gap-16">
@@ -28,7 +28,7 @@ const portrait = photo('portrait-verschraenkt');
       <figure class="mt-12">
         <Image
           src={portrait}
-          alt="Niklas Lustig im Konzert, St. Josef Berlin"
+          alt="Porträt von Niklas Lustig, Museumsinsel Berlin"
           widths={[420, 640, 900]}
           sizes="(min-width: 768px) 40vw, 100vw"
           loading="lazy"

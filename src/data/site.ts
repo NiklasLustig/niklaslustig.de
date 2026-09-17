@@ -87,6 +87,14 @@ export const recordings: Array<{
   src: string;
 }> = [
   {
+    // Vollständige Aufzeichnung, veröffentlicht vom Kanal der Kirchengemeinde.
+    // src ist bei kind: 'youtube' die Video-ID, nicht die volle URL.
+    title: '«Mensch Natur Gott» — Oratorienkonzert',
+    meta: 'St. Josef Berlin · 31. Mai 2026 · Aufzeichnung der Kirchengemeinde',
+    kind: 'youtube',
+    src: 'XXbsTmILF84',
+  },
+  {
     title: 'Orgelspiel — Ausschnitt',
     meta: 'Instagram',
     kind: 'link',

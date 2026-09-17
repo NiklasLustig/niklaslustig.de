@@ -38,6 +38,7 @@ const cover = photo('haende-bewegung');
               <button
                 type="button"
                 data-video={r.src}
+                data-title={r.title}
                 class="video-trigger group flex w-full items-center gap-4 rounded-lg border border-[var(--color-line)] bg-ink-raised p-5 text-left transition-colors hover:border-brass/50"
               >
                 <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-brass/40 text-brass transition-colors group-hover:bg-brass group-hover:text-ink">&#9654;</span>
@@ -75,7 +76,8 @@ const cover = photo('haende-bewegung');
       if (!id) return;
       const frame = document.createElement('iframe');
       frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
-      frame.title = btn.textContent?.trim() ?? 'Aufnahme';
+      // The button's textContent would drag in the ▶ glyph and the meta line.
+      frame.title = btn.dataset.title ?? 'Aufnahme';
       frame.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       frame.allowFullscreen = true;
       frame.className = 'aspect-video w-full rounded-lg border border-[var(--color-line)]';

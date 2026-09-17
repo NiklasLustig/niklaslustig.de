@@ -12,6 +12,11 @@ export const ROLE = 'Dirigent & Organist';
 export const EMAIL = 'kontakt@niklaslustig.de';
 export const CITY = 'Berlin';
 
+/** Überraschungsgeschenk: bis zur Übergabe soll die Seite nicht über Google
+ *  auffindbar sein. Steuert <meta robots> und robots.txt an genau einer Stelle.
+ *  Am Tag der Übergabe auf false setzen — mehr ist nicht zu tun. */
+export const PRELAUNCH = true;
+
 /** Photo credit shown in the footer. */
 export const PHOTO_CREDIT = 'Isabel Zerfowski, Lennert van de Kreeke';
 

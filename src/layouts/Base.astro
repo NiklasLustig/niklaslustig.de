@@ -2,7 +2,7 @@
 import '@fontsource-variable/fraunces';
 import '@fontsource-variable/instrument-sans';
 import '../styles/global.css';
-import { NAME, ROLE, CITY } from '../data/site';
+import { NAME, ROLE, CITY, PRELAUNCH } from '../data/site';
 
 interface Props {
   title?: string;
@@ -28,6 +28,7 @@ const ogImage = new URL('/images/og.jpg', Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {PRELAUNCH && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#0A0906" />
     <meta property="og:type" content="website" />

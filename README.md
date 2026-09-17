@@ -82,6 +82,13 @@ For `'youtube'`, `src` is the **video ID only** — `XXbsTmILF84`, not the full
 `youtu.be/…` URL. The component builds the `youtube-nocookie.com` embed URL
 around it.
 
+The first entry with a `poster` slug is played out large, at player size; any
+further recordings list underneath as rows. Posters live in `src/lib/posters.ts`
+and are **self-hosted copies** of the YouTube thumbnail — hotlinking
+`i.ytimg.com` would contact Google on page load, which is the one thing the
+click-to-load rule exists to prevent. YouTube pads portrait artwork into a 16:9
+frame with black bars; crop those off before committing the file.
+
 ## Sections that hide themselves
 Repertoire, press quotes and the press-kit download list disappear while their
 data is empty, so the page never shows a placeholder. Entries containing

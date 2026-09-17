@@ -90,20 +90,18 @@ export const recordings: Array<{
   meta: string;
   kind: 'youtube' | 'link' | 'audio';
   src: string;
+  /** Slug aus src/lib/posters.ts. Der erste Eintrag mit Poster wird gross
+   *  ausgespielt; weitere Aufnahmen erscheinen darunter als Zeile. */
+  poster?: string;
 }> = [
   {
     // Vollständige Aufzeichnung, veröffentlicht vom Kanal der Kirchengemeinde.
     // src ist bei kind: 'youtube' die Video-ID, nicht die volle URL.
     title: '«Mensch Natur Gott» — Oratorienkonzert',
-    meta: 'St. Josef Berlin · 31. Mai 2026 · Aufzeichnung der Kirchengemeinde',
+    meta: 'Oratorienchor und Orchester St. Josef · Berlin, 31. Mai 2026',
     kind: 'youtube',
     src: 'XXbsTmILF84',
-  },
-  {
-    title: 'Orgelspiel — Ausschnitt',
-    meta: 'Instagram',
-    kind: 'link',
-    src: 'https://www.instagram.com/reels/DSMj5u_Dnb5/',
+    poster: 'mensch-natur-gott',
   },
 ];
 

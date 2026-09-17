@@ -4,3 +4,13 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Die Seite laedt nur eigene Assets plus GoatCounter und - erst nach Klick -
+# YouTube. Die Regeln bilden genau das ab.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"

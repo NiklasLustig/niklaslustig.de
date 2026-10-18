@@ -7,20 +7,44 @@
     "venue": "St. Josef Weißensee",
     "city": "Berlin",
     "role": "Chor- und Orchesterleitung",
-    "program": "Beethoven — Symphonie Nr. 6 «Pastorale» · Weber — Der Freischütz, Ouvertüre · Mendelssohn · Mozart",
+    "program": "Beethoven: Symphonie Nr. 6 «Pastorale» - Weber: Der Freischütz, Ouvertüre - Mendelssohn: Der 42. Psalm  - Mozart: Spatzenmesse",
     "ticketUrl": "",
-    "note": "Leitung: Niklas Lustig und Hendrik Rüßmann. Eintritt frei, Spenden erbeten."
+    "note": "Leitung: Niklas Lustig und Hendrik Rüßmann"
   },
   {
     "id": "2026-08-16-abschlusskonzert",
-    "title": "Abschlusskonzert — Orgelkonzert",
+    "title": "Orgelkonzert",
     "date": "2026-08-16",
     "time": "19:00",
     "venue": "Pauluskirche Zehlendorf",
     "city": "Berlin",
     "role": "Orgel",
-    "program": "",
+    "program": "Werke von Bach, Frescobaldi, Bruhns, Pärt, Franck, Widor und Vierne",
     "ticketUrl": "",
-    "note": "Abschlusskonzert im Rahmen der Kirchenmusikausbildung."
+    "note": "Bachelor Abschlusskonzert"
+  },
+  {
+    "id": "2026-09-12-orgelspaziergang",
+    "title": "Orgelspaziergang",
+    "date": "2026-09-12",
+    "time": "15:00",
+    "venue": "Epiphanienkirche Charlottenburg-Wilmersdorf",
+    "city": "Berlin",
+    "role": "Orgel",
+    "program": "Werke von Cage, Pärt und Uibo",
+    "ticketUrl": "",
+    "note": "Orgelrecitals von Studierenden des Kirchenmusik-Institutes der UdK Berlin"
+  },
+  {
+    "id": "2026-09-27-exequien nunc",
+    "title": "Nunc! Vokalensemble Berlin: Musikalische Exequien",
+    "date": "2026-09-27",
+    "time": "17:00",
+    "venue": "Königin-Luise-Kirche Waidmannslust",
+    "city": "Berlin",
+    "role": "Continuo",
+    "program": "Werke von Heinrich Schütz, J.H. Schein und S. Scheidt",
+    "ticketUrl": "",
+    "note": "Leitung: Jurgita Česonytė, Orgel: Niklas Lustig"
   }
 ]

@@ -23,6 +23,7 @@ const fmt = (d: string) =>
       <p class="mt-3 text-stone">{next.venue}, {next.city}</p>
       {next.role && <p class="mt-1 text-sm text-brass-dim">{next.role}</p>}
       {next.program && <p class="mt-3 text-sm text-stone/80">{next.program}</p>}
+      {next.note && <p class="mt-1 text-sm text-stone/60">{next.note}</p>}
       {next.ticketUrl && (
         <a href={next.ticketUrl} class="mt-5 inline-block text-sm text-brass underline underline-offset-4">Tickets</a>
       )}
@@ -75,6 +76,7 @@ const fmt = (d: string) =>
               <p class="mt-1 text-stone">{c.venue}, {c.city}</p>
               {c.role && <p class="mt-1 text-sm text-brass-dim">{c.role}</p>}
               {c.program && <p class="mt-1 text-sm text-stone/80">{c.program}</p>}
+              {c.note && <p class="mt-1 text-sm text-stone/60">{c.note}</p>}
             </div>
           </li>
         ))}
